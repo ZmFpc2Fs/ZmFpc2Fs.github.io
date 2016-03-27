@@ -1,0 +1,171 @@
+html {
+    position: relative;
+    min-height: 100%;
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Open Sans',sans-serif;
+    font-size: 1.7em;
+    line-height: 1.6em;
+    color: #3A4145;
+    margin-bottom: 60px;
+
+    margin: 0;
+}
+
+h1 {
+    font-size: 4rem;
+    line-height: 1.2em;
+    letter-spacing: -2px;
+    text-indent: -3px;
+}
+
+h2 {
+    font-size: 3.2rem;
+    line-height: 1.2em;
+    letter-spacing: -1px;
+    text-indent: -2px;
+    font-weight:  bold;
+}
+
+h1 a,h2 a,h3 a,h4 a,h5 a,h6 a {color:#222;}
+
+.header {
+  margin: 10px 0px 30px 0px;
+}
+
+.header-content {
+    position: relative;
+    padding: 30px 0 23px 0;
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto
+}
+
+.logo {
+    text-decoration: none;
+    float: left;
+    margin: -15px 15px 0 0;
+}
+
+.logo img {
+    display: block;
+    max-height: 100px;
+    max-width: 100px;
+    line-height: 0;
+}
+
+.site-title {
+  margin: 0;
+  font-size: 3.2rem;
+  letter-spacing: -1px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.site-title a {
+    color: #222;
+    text-decoration: none;
+}
+
+.site-description {
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1em;
+  font-weight: normal;
+  letter-spacing: 0;
+}
+
+.tagline {
+    margin: 0;
+    font-size: 1.5rem;
+    line-height: 1em;
+    font-weight: bold;
+    letter-spacing: 0;
+}
+
+.content {
+      width: 90%;
+      max-width: 1000px;
+      margin: 0 auto;
+}
+
+.entry-title {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.entry-meta {
+    display: inline-block;
+    font-size: 1.4rem;
+    line-height: 1;
+    color: #9EABB3;
+}
+
+.sidebar {
+    font-size: 1.6rem;
+    line-height: 1.6em;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 1.6em 0;
+}
+
+.sidebar h3 {
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #4a4a4a;
+}
+
+.sidebar a {
+    font-size: 2rem;
+}
+
+.caption {
+  float: right;
+  padding: 10px;
+  box-shadow: 5px 5px 10px #888888;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+
+.info-names {
+    padding: 0.3em 0.4em 0.3em;
+    display: inline;
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 0.4px;
+    margin-right: 5px;
+}
+
+
+.container .text-muted {
+  margin: 20px 0;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
+}
+
+.post-summary {
+  padding-top: 10px;
+}
+

@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+
+{% block title %}{{ SITENAME }} - {{ article.title }}{% endblock title %}
+
+{% block content %}
+
+    <article class="entry">
+        <header class="entry-head">
+            <span class="entry-meta">
+                <time datetime="{{article.date.strftime('%B %d, %Y')}}">{{ article.date.strftime('%B %d, %Y')}}</time> 
+            </span>
+            <h2 class="entry-title"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
+                {% for tag in article.tags %}
+                    <span class="label label-default">#{{tag}}</span>
+                {% endfor %}
+        </header>
+        <section class="post-summary">
+            {% if article.cover_image %}
+                        <span class="caption"><img src="{{ article.cover_image}}" height=250px></span>
+                    {% endif %}
+            {{ article.content }}
+        </section>
+    </article> 
+
+    {% include 'disqus.html' %}
+
+{% endblock  %}

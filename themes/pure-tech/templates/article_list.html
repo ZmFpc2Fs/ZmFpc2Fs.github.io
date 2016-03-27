@@ -1,0 +1,29 @@
+{% for article in articles_page.object_list %}
+    <section class="post">
+        <article class="entry">
+            <header class="entry-head">
+                <span class="entry-meta">
+                    <time datetime="2016-03-04">{{ article.date.strftime('%B %d, %Y')}}</time> 
+                </span>
+                <h2 class="entry-title"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
+                {% for tag in article.tags %}
+                    <span class="label label-default">#{{tag}}</span>
+                {% endfor %}
+            </header>
+            <section class="post-summary">
+                {% if article.cover_image %}
+                    <span class="caption"><img src="{{ article.cover_image}}" height=150px></span>
+                {% endif %}
+                <p>{{ article.summary }}</p>
+            </section>
+            <div class="read-more">
+                <a class="pure-button" href="{{ SITEURL }}/{{ article.url }}">
+                    read on
+                </a>
+            </div>
+        </article> 
+    </section>
+    {% if not loop.last %}
+        <hr />
+    {% endif %}
+{% endfor %}
