@@ -27,11 +27,13 @@ AUTHOR_FEED_RSS = None
 THEME = 'themes/pure-tech'
 
 STATIC_PATHS = [
-	'images'
+	'images',
+	'extra/CNAME'
 ]
 
 EXTRA_PATH_METADATA = {
     'images/favicon.png': {'path': 'favicon.png'},
+    'extra/CNAME' : {'path': 'CNAME'}
 }
 
 DATE_FORMATS = {
