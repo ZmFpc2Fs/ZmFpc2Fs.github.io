@@ -1,4 +1,4 @@
-title: Book Review : Average is Over
+title: Book Review : Average is Over (2)
 subtitle: Powering America Beyond the Age of the Great Stagnation (2013)
 date: 2016-03-27 21:52
 tags: Books
