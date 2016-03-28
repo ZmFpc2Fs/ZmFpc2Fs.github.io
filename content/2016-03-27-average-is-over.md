@@ -10,6 +10,6 @@ intelligent machines to their advantage and (ii) an increasing majority of low w
 Average, the historically preferred job by many Americans, is disappearing. He supports his arguments by referring to
 the fact that majority of job losses during 2008 recessions were in mid-range occupations. The computer skills are increasingly becoming more important for everyone to do good in future workforce. This does not necessarily mean only the people working in the IT sector.  His primal example is that of freestyle chess, where players can use computer software to compute best moves against their opponent, making way for "non chess" players to excel in chess. In other future predictions, 
 
-The beginning and ending chapter of the books are indeed very interesting and well worth the read. However, the middle part could have been presented more succinctly. Where as I expected to see more number backing the the claims made in the book, but found mostly anecdotal evidence. The chess metaphor, although very approprpriate, was repeated many times to become a nuisance. A chess enthusiast would certainly love this book. 
+The beginning and ending chapters of the books are indeed very interesting and well worth the read. However, the middle part could have been presented more succinctly. Where as I expected to see more number backing the the claims made in the book, but found mostly anecdotal evidence. The chess metaphor, although very approprpriate, was repeated many times to become a nuisance. A chess enthusiast would certainly love this book. 
 
 
