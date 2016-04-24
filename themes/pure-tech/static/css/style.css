@@ -169,3 +169,13 @@ code {
   padding-top: 10px;
 }
 
+img[alt=post] {
+  display:block;
+  text-align: center;
+  margin: 5px auto;
+  width: 90%;
+}
+
+#disqus_thread {
+  padding-top: 10px;
+}
