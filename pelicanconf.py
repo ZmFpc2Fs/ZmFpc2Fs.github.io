@@ -7,7 +7,7 @@ import os.path as op
 AUTHOR = u'Faisal Khan'
 SITENAME = u"Faisal's Notes"
 TAGLINE = "Data | Code | Visualization"
-SITEURL = 'http://faisalnotes.com'
+SITEURL = 'http://localhost:8000'
 PATH = 'content'
 
 TIMEZONE = 'America/Chicago'
