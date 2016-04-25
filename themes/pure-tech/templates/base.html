@@ -34,7 +34,7 @@
         					<h3> TAGS </h3>
 	    					<ul>
 	    						{% for tag, articles in tags|sort %}
-	    							<li><a href="#" > #{{tag}} </a></li>
+	    							<li><a href="/tag/{{tag}}" > #{{tag}} </a></li>
 	    						{% endfor %}	    						
 	    					</ul>
 	    				</div>
@@ -55,6 +55,7 @@
 	    </footer>
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     	<script src="/theme/js/bootstrap.min.js"></script>
+    	{% include 'ga.html' %}
 	</body>
 
 </html>
