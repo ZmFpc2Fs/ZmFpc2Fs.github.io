@@ -1,6 +1,6 @@
 title: Setting up blog with Pelican
 date: 2016-04-23 7:00AM
-tags: Python, Pelican
+tags: python, pelican
 
 I am using [GitHub pages](https://pages.github.com/) to host this blog. The static HTML content is generated from the Markdown text using [Pelican](http://blog.getpelican.com/).  
 

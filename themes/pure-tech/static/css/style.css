@@ -89,6 +89,7 @@ h1 a,h2 a,h3 a,h4 a,h5 a,h6 a {color:#222;}
       width: 90%;
       max-width: 1000px;
       margin: 0 auto;
+      margin-bottom: 90px;
 }
 
 .entry-title {
@@ -134,7 +135,7 @@ h1 a,h2 a,h3 a,h4 a,h5 a,h6 a {color:#222;}
 
 .footer {
   position: absolute;
-  /*bottom: 0;*/
+  bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 60px;
