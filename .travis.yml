@@ -4,6 +4,7 @@ branches:
   - source
 install:
 - pip install markdown pelican ghp-import
+  git clone https://github.com/getpelican/pelican-plugins
 script:
 - make publish github
 env:
