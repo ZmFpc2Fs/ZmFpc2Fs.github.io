@@ -169,6 +169,6 @@ STATIC_PATHS = [
 
 The second step is to point your domain's name server to your GitHub URL. The steps might vary depending on your domain nameserver. Typically, you will need to add the following two records to your nameserver.
 
-![post](/images/setting-up-pelican-site/dns.png =10)
+![post](/images/setting-up-pelican-site/dns.png)
 
 Thats mostly it. Enjoy!

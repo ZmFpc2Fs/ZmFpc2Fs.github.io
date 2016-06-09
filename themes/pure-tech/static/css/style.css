@@ -172,8 +172,18 @@ code {
 img[alt=post] {
   display:block;
   text-align: center;
+  margin: 20px auto;
+  width: 100%;
+}
+
+img[alt=cover] {
+  display:block;
+  text-align: center;
   margin: 5px auto;
-  width: 90%;
+  width: 100%;
+  -webkit-box-shadow: 10px 10px 8px #888888;
+     -moz-box-shadow: 10px 10px 8px #888888;
+          box-shadow: 10px 10px 8px #888888;
 }
 
 #disqus_thread {
