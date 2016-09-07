@@ -1,7 +1,7 @@
 title: Book Review : Average is Over
 subtitle: Powering America Beyond the Age of the Great Stagnation (2013)
 date: 2016-03-27 21:52
-tags: Books
+tags: books
 cover_image: /images/bookcover/average_is_over.jpg
 
 Tyler Cowen is a professor of economics at George Mason University. He argues, in the book, about a future work force that will be divided into two groups: (i) high earners minority who creatively use
