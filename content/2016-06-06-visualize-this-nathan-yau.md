@@ -1,8 +1,12 @@
-title: Book Review : Data Points, Visualize This
+title: Review : Two practical books on Visualizations
 subtitle: Visualization book by the author of FlowingData.com
 date: 2016-06-06 21:52
-tags: Books
+tags: Books D3
 cover_image: /images/bookcover/average_is_over.jpg
+D3:
+scripts: d3_pie_chart.js
+styles: d3_pie_chart.css
+
 
 I am using [GitHub pages](https://pages.github.com/) to host this blog. The static HTML content is generated from the Markdown text using [Pelican](http://blog.getpelican.com/).  
 
@@ -33,3 +37,5 @@ Here I document the steps for my setup. I did my setup on a Mac but these instru
 ![post](/images/visualize-this-nathan-yau/unemployment.png)
 
 Examples are easy to follow. 
+
+<div class="d3-chart"></div>

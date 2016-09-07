@@ -5,6 +5,8 @@ branches:
 install:
   - pip install markdown pelican ghp-import
   - git clone https://github.com/getpelican/pelican-plugins
+  - cd pelican-plugins
+  - git clone https://github.com/wrobstory/pelican_dynamic.git
 script:
   - make publish github
 env:

@@ -56,7 +56,8 @@ PAGINATION_PATTERNS = (
 PLUGIN_PATHS = ['pelican-plugins', 'plugins']
 
 PLUGINS = [
-           'neighbors'
+           'neighbors',
+           	'pelican_dynamic'
            ]
 
 DIRECT_TEMPLATES = ('index', 'archives')
