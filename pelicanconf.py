@@ -55,6 +55,11 @@ PAGINATION_PATTERNS = (
 )
 PLUGIN_PATHS = ['pelican-plugins', 'plugins']
 
+PLUGINS = [
+           'neighbors',
+           	'pelican_dynamic'
+           ]
+
 DIRECT_TEMPLATES = ('index', 'archives')
 ARCHIVES_SAVE_AS = 'archives/index.html'
 ARTICLE_URL = '{slug}/'

@@ -1,6 +1,6 @@
 title: Setting up blog with Pelican
 date: 2016-04-23 7:00AM
-tags: Python, Pelican
+tags: python, pelican
 
 I am using [GitHub pages](https://pages.github.com/) to host this blog. The static HTML content is generated from the Markdown text using [Pelican](http://blog.getpelican.com/).  
 
@@ -16,7 +16,7 @@ Here I document the steps for my setup. I did my setup on a Mac but these instru
 
 We start with setting up a new GitHub repostiroy. The respostoriy should be named as *username.github.io*, where username is the name that you used to signup for the GitHub accout. That is how GitHub pages will know to serve your content at *http://username.github.io*. You can also point your own domain to this page. 
 
-The GitHub pages serve static HTML content off of *master* branch of your repostiory. However, you would also like to keep the Markdown source files around as well. So, its better to have separate branches  for different type of conent. I would recommend keeping three branches: *master* for the HTML content, *sources* for the raw text, and a *draft* branch for working and refining a post before making it live. You can look at the repo for this blog [here](https://github.com/nine2five/nine2five.github.io) to get an idea. The content is in the source branch and is processed by Pelican to generate the HTML that always overwrites the master branch. 
+The GitHub pages serve static HTML content off of *master* branch of your repostiory. However, you would also like to keep the Markdown source files around as well. So, its better to have separate branches  for different type of conent. I would recommend keeping three branches: *master* for the HTML content, *sources* for the raw text, and a *draft* branch for working and refining a post before making it live. You can look at the repo for this blog [here](https://github.com/n-log-n/n-log-n.github.io) to get an idea. The content is in the source branch and is processed by Pelican to generate the HTML that always overwrites the master branch. 
 
 ### Setting up Pelican
 
