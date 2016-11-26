@@ -1,4 +1,4 @@
-title: Setting up blog with Pelican
+title: Setting up a Blog with Pelican
 date: 2016-04-23 7:00AM
 tags: python, pelican
 
