@@ -7,6 +7,7 @@ install:
   - git clone https://github.com/getpelican/pelican-plugins
   - cd pelican-plugins
   - git clone https://github.com/wrobstory/pelican_dynamic.git
+  - cd ..
 script:
   - make publish github
 env:
