@@ -1,7 +1,7 @@
 title: Review : Two Practical Books on Visualizations
 subtitle: Visualization book by the author of FlowingData.com
 date: 2016-06-06 21:52
-tags: books, D3, visualization
+tags: books, d3.js, visualization
 cover_image: /images/bookcover/visualize_this_data_points.jpg
 D3:
 scripts: d3_pie_chart.js
