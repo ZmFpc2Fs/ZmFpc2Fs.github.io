@@ -3,13 +3,13 @@ branches:
   only:
   - source
 install:
-  - pip install markdown pelican ghp-import
-  - git clone https://github.com/getpelican/pelican-plugins
-  - cd pelican-plugins
-  - git clone https://github.com/wrobstory/pelican_dynamic.git
-  - cd ..
+- pip install markdown pelican ghp-import
+- git clone https://github.com/getpelican/pelican-plugins
+- cd pelican-plugins
+- git clone https://github.com/wrobstory/pelican_dynamic.git
+- cd ..
 script:
-  - make publish github
+- make publish github
 env:
   global:
-    secure: aPSlDG0e8KQ1SgQYHvFfChck8JDCoQpIBFdzEitbDvPcBXnZ8ugRSy0nSzouA/VoSUKBbSupgjigXCLCb3w4/4t8sjhzy9pY7mvz4zb34p/DKYSyWmpJhCu8QFMtx/VE16HVs4eLqv5XhVJ6syHoXacRWuBxuRH8Co+iFAGDkdzy6rg2An4Yp3zPg6jEXYtUp+ycvmqLFR+yTR7hAvKLz+ukpFOkbSEPTKcicDXAmxuzkjBBbPqaLLnejesYd/Z3Aonetvt/Ad0Gv6K5vb3qOMqUU1ekyKf1Z08/s22aECYNOCuoV2ZEsbafdKJwVzLoRJRzNVBOrxR7iUWZ1B6fCccwjusmonOWbv/K+wnn00np4xV3AzQ7xT9c9f3oMe2I2s3fh6TYpylbjcL7vZP2tm2AwDgVTV6PCbq7TtKfnG+E21UDpn6s2wmNQsV2Sxk1c5PYs0gO+SKdsnfwTTVZOE+KF1fWQ84K1isDWWHVBc7+hoc2OYRBrJimdUtglr1plOZKp2hB3JsDFYX9hHASEPuWt38WF5nEoDC5xxpG/yhwPN6y2M129jrgHDI4cfiVG6VdRBCpSEaok2o4uU6hnFRDGbrjDQhbv7XY83+6DHto6lF3FyVvEbGNH/Vkqsgd5zBn1OlJFD05mne1DzV6UqGOsTzv9mdE2mnYs5jmn/4=
+    secure: A8hE1H+16WlKAu5K4ZqqpLv14MBUC9rtQGc6RCIJV2zcHbpvwXQ/6HS6T5tTKd3J/XKzullWi/qM2oQyY+3NcTp08qs+z91wVBBBa4eu20m29BbZ5/1TL8RvVEWv3TWjZ4LdzJCBkkOe1FJgAUEFdP9QXcEANZjc+/nLcOenqDJeDlr7Hp2lInhnkwntfvAdh1cMDzBweETfcZTcmXYQaa89/ori2886qTYr3XlBkHuzn7kBj4VZSlRlPZiihM2cmzQ7UBZBgk2xM2a9oYda16fRsQ3Xto8TscmWUQxNAjbU+of/365il8Pc3z1mOF/zPAt84N90VvAcWUHUZnzSrNgHRPE2cmeAAcVx9RZnlUvNoZc3RzVTZs80NkmSNnFvEsgS77ZF35SwUcems5hB0bTlMxAmAaMinAR2JFXasTj0/h4hzUq1+0Fluypve/ZaBg5H18k9mdAErD99GcGv+JQof4RqFNcfs/70RzzLUjnjE/MFtt1cnwvgHweyNcGatVGHT+s3V2eN+W5vnMEmb3SFlEIbnYtOT5kevaEcvbHnFE1b/AypZty4VK6fmB+qsQbQxDFOInfe2jvsSTkfQnkrSVVk45ygQqq1lUUxCGyyq3WlB42jUK8AXmR0rKc4VRqZ+Xvt1qPym9PHJ6it8FoRoZEy4Dzx+5P/IUCuiWA=
