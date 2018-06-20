@@ -1,5 +1,5 @@
 title: Matrix Manipulations using C++ Eigen Library
-subtitle: Matrix data manipulation and operations using C++ and Eigen library
+description: A tutorial to quickly get started to manipulate matrices in C++. 
 date: 2018-06-20 07:00 PM
 tags: eigen, C++
 cover_image: /images/eigen_introduciton_part1/abstract-access-close-up-1089438.jpg
@@ -156,8 +156,8 @@ We have already seen few examples of initializing a matrix using comma seperated
 ```C++
 Eigen::Matrix3f A;
 A << 1 , 9, 12,
-   14, 7, 8,
-   6 , 4, 9;
+    14, 7, 8,
+    6 , 4, 9;
 ```
 
 There are few additional methods. Later, we will also see how to interface existing data to the eigen matrix. 
@@ -169,8 +169,8 @@ Another way to initialize matrices and arrays is using the static methods like *
 ```C++
 Matrix2f A = ArrayXXf::Zero(2, 2);
 cout<<A<<endl;    // 0 0
-				 //	 0 0
-
+				   //	0 0
+ 
 Matrix3f B = Matrix3f::Zero(3, 3);
 cout<<B<<endl;     // 0 0 0
 				   // 0 0 0
@@ -200,7 +200,7 @@ int data[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
 
 cout<<"Column Major 3 by 3 Matrix"<<endl;
 Map<Matrix<int, 3, 3>> A(data, 3, 3);
-cout<<A<<endl; 	// 1 4 7
+cout<<A<<endl; 		// 1 4 7
 				 	//2 5 8
 					//3 6 9
 ```
@@ -210,9 +210,9 @@ By default the Eigen library uses column-major order to process the data within 
 ```C++
 cout<<"Row Major 3 by 3 Matrix"<<endl;
 Map<Matrix<int, 3, 3, RowMajor>> B(data);
-cout<<B<<endl;	//1 2 3
-					//4 5 6
-					//7 8 9
+cout<<B<<endl;	           //1 2 3
+					     //4 5 6
+					     //7 8 9
 
 ```
 
@@ -222,12 +222,16 @@ In addition to the storage order, we can also specify the *stride* that offer us
   int data[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
 
   Map<Matrix<int, 3, 2>, 0, Stride<6, 2>> A(data);
-  cout<<A<<endl; 	// 1  7
+  cout<<A<<endl; 	    // 1  7
 						// 3  9
 						// 5 11
 ```
 
-The *Stride* class has two parameters: (i) OuterStrideAtComileTime and (ii) InnerStrideAtCompileTime. The inner stride controls how many elements to skip between two consecutive entries within a given column (row) for column-major (row-major) matrix. The outer stride specifies the increment between two consecutive columns (rows) of a column-major (row-major) matrix. 
+The *Stride* class has two parameters: (i) OuterStrideAtComileTime and (ii) InnerStrideAtCompileTime. 
+
+The **inner stride** controls how many elements to skip between two consecutive entries within a given column (row) for column-major (row-major) matrix. 
+
+The **outer stride** specifies the increment between two consecutive columns (rows) of a column-major (row-major) matrix. 
 
 In the example above, we used an outer stride of 6 and an inner stride of 2. The outer stride of 6 will skip over 6 elements between each column. More specifically, the first column will start at the first elements and the second column will jump to to the 7th element. The inner stride of 2 means that we want to skip an element within the consecutive elements of a given column. 
 
@@ -308,18 +312,56 @@ cout << "Sum of diagonal elements = " <<A.trace()<<endl;
 
 ```
 
-In addition to above few examples, there are many other supported operations. Many of these operations can also be applied to a portion of the Matrix or Array Cass. 
+In addition to above few examples, there are many other supported operations. Many of these operations can also be applied to a portion of the matrix or array using block operations. 
 
-Block
+##Block Operations
 
+Eigen offers operations that can be used to manipulate or extract just a part of a matrix or array. These block expressions can  either be used as *rvalues* or as *lvalues*. The **block(i, j, p, q)** operation allows us to specify a rectangular block of size *p by q* starting at position *i* and *j*. 
 
+```C++
 
-### Using existing data
+cout<<"Block of size 2, 2 starting at 1, 1\n"<<A.block(1, 1, 2, 2)<<endl;
 
+```
+
+Similarly, individual rows and cols of an array or matrix can be manipulated as a special case of block operaitons, using *row(i)* or *col(i)* expressions. 
+
+```C++
+
+cout<<"Row 1 of the Matrix A.row(0)\n"<<A.row(0)<<endl;
+
+A.row(0) = A.row(0) * 3;
+
+cout<<"A.row(0)*3\n"<<A<<endl;
+
+```
+Check out the official documentation for more [examples](http://eigen.tuxfamily.org/dox-3.2/group__TutorialBlockOperations.html) of block operations. 
+
+##Broadcasting
+
+Boradcasting is the idea of constructing an intermediate representaiton of a vector by replicting its entries in one direction (rows or columns) such that it is possible to peform an operation on a different sized matrix. As a simple example consider adding a vector to a matrix. 
+
+```C++
+int data[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+
+Map<Matrix3i> A(data);
+cout<<"Matrix A \n"<<A<<endl;
+
+Vector3i B;
+B << 4, 5, 6;
+cout<<"Vector B\n"<<B<<endl;
+
+cout<<"Broadcast to columns \n"<<A.colwise()+B<<endl;
+cout<<"Broadcast to rows \n"<<A.rowwise()+B.transpose()<<endl;
+```
+
+##Summary
+
+Eigen is feature rich library that offers many additional features including support for linear solvers, sparse matrices, and multi-threading through OpenMP to name just the few. In a future post, we will try to cover some of these topics. 
 
 ### Reference ###
 
-The eigen documentation http://eigen.tuxfamily.org/dox-3.2/group__TutorialMatrixClass.html
+[Official Documentaiton](http://eigen.tuxfamily.org/dox-3.2/group__TutorialMatrixClass.html)
 
 
 
