@@ -168,25 +168,70 @@ Another way to initialize matrices and arrays is using the static methods like *
 
 ```C++
 Matrix2f A = ArrayXXf::Zero(2, 2);
-cout<<A<<endl; // 0 0
+cout<<A<<endl;    // 0 0
 				 //	 0 0
 
 Matrix3f B = Matrix3f::Zero(3, 3);
-cout<<B<<endl;  // 0 0 0
+cout<<B<<endl;     // 0 0 0
 				   // 0 0 0
 				   // 0 0 0
 
 Matrix3f C = Matrix3f::Ones(3, 3);
-cout<<C<<endl; // 1 1 1
+cout<<C<<endl;    // 1 1 1
 				  // 1 1 1
 				  // 1 1 1
 
 ```
-The *Random()* method will fill the matrix or array with random coefficients. Similary the static method *Constant(value)* sets all the coefficients to value.
+The **Random()** method will fill the matrix or array with random coefficients. Similary the static method **Constant(value)** sets all the coefficients to the *value*.
 
 ### Using existing data. 
 
-A pre-defined numeric array can be used with Eigen either as a vector or matrix. This is done through the **Map** class. 
+The raw C/C++ buffers can be interfaced with eigen using the **Map** class. The Map object has a type defined as:
+
+
+```C++
+Map<Matrix<typename Scalar, int RowsAtCompileTime, int ColsAtCompileTime> > 
+```
+
+The argument to the template is the of type **Eigen::Matrix**. In the example below we interface an integer array of length 9 to an integer matrix of 3 by 3. 
+
+```C++
+int data[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+
+cout<<"Column Major 3 by 3 Matrix"<<endl;
+Map<Matrix<int, 3, 3>> A(data, 3, 3);
+cout<<A<<endl; 	// 1 4 7
+				 	//2 5 8
+					//3 6 9
+```
+
+By default the Eigen library uses column-major order to process the data within the raw buffer. However this can be changed by explicilty providing the storage order as part of the template argument to the Map. 
+
+```C++
+cout<<"Row Major 3 by 3 Matrix"<<endl;
+Map<Matrix<int, 3, 3, RowMajor>> B(data);
+cout<<B<<endl;	//1 2 3
+					//4 5 6
+					//7 8 9
+
+```
+
+In addition to the storage order, we can also specify the *stride* that offer us further fine control over the layout of the data. For example, in the following example, we are skipping over an element while interfacing with the raw buffer.
+
+```C++
+  int data[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
+
+  Map<Matrix<int, 3, 2>, 0, Stride<6, 2>> A(data);
+  cout<<A<<endl; 	// 1  7
+						// 3  9
+						// 5 11
+```
+
+The *Stride* class has two parameters: (i) OuterStrideAtComileTime and (ii) InnerStrideAtCompileTime. The inner stride controls how many elements to skip between two consecutive entries within a given column (row) for column-major (row-major) matrix. The outer stride specifies the increment between two consecutive columns (rows) of a column-major (row-major) matrix. 
+
+In the example above, we used an outer stride of 6 and an inner stride of 2. The outer stride of 6 will skip over 6 elements between each column. More specifically, the first column will start at the first elements and the second column will jump to to the 7th element. The inner stride of 2 means that we want to skip an element within the consecutive elements of a given column. 
+
+![post](/images/eigen_introduciton_part1/strides_example1.png)
 
 
 ##Performing Basic Operations
@@ -271,6 +316,10 @@ Block
 
 ### Using existing data
 
+
+### Reference ###
+
+The eigen documentation http://eigen.tuxfamily.org/dox-3.2/group__TutorialMatrixClass.html
 
 
 
