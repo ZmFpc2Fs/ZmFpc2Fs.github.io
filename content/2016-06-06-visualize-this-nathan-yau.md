@@ -1,5 +1,5 @@
 title: Review : Two Practical Books on Visualizations
-subtitle: Visualization book by the author of FlowingData.com
+description: Two excellent books on visualization by the author of FlowingData.com. 'Data Points' explains the core principles of visualization and inspires its reader about the effective use of this medium to tell a story about their data. 'Visualize This' offers a more hands on approach to visualizing data
 date: 2016-06-06 21:52
 tags: books, d3.js, visualization
 cover_image: /images/bookcover/visualize_this_data_points.jpg
@@ -7,7 +7,7 @@ D3:
 scripts: d3_pie_chart.js
 styles: d3_pie_chart.css
 
-Two excellent books that can help you get started with effective visualization of your data are: The [**Data Points**: Visualization that means something](https://www.amazon.com/gp/product/111846219X) and [**Visualize This**: The FlowingData Guide to Design, Visualization, and Statistics](https://www.amazon.com/gp/product/0470944889). These best seller are written by **Nathan Yau** who is also the author of the famous data visualization blog:  [FlowingData](http://flowingdata.com/). 
+Two excellent books that can help you get started with effective visualization of your data are: The [**Data Points**: Visualization that means something](https://www.amazon.com/gp/product/111846219X) and [**Visualize This**: The FlowingData Guide to Design, Visualization, and Statistics](https://www.amazon.com/gp/product/0470944889). These best sellers are written by **Nathan Yau** who is also the author of the famous data visualization blog:  [FlowingData](http://flowingdata.com/). 
 
 *Data Points* explains the core principles of visualization and inspires its reader about the effective use of this medium to tell a story about their data. It walks you through the best representation of different types of data and how they compare with each other. The book itself comes with a lot of inspiring examples that are beautifully crafted and are visually pleasing. Once you are ready to dive deep and get your own hand dirty with the material, you can head over to the *Visualize This* and get a more technical introduction of the topic. 
 

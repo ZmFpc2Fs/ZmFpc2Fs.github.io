@@ -1,5 +1,17 @@
 {% extends 'index.html' %}
 
+{% block head %}
+{{ super() }}            
+
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="article:author" content="https://www.facebook.com/faisal.khan">
+<meta property="og:title" content="{{article.title}}">
+<meta property="og:description" content="{{article.description}}">
+<meta property="og:image" content="{{article.cover_image}}">
+
+{% endblock head %}
+
 {% block title %}{{ SITENAME }} - {{ article.title }}{% endblock title %}
 
 {% block content %}
@@ -10,9 +22,9 @@
                 <time datetime="{{article.date.strftime('%B %d, %Y')}}">{{ article.date.strftime('%B %d, %Y')}}</time> 
             </span>
             <h2 class="entry-title"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
-                {% for tag in article.tags %}
-                    <span class="label label-default">#{{tag}}</span>
-                {% endfor %}
+            {% for tag in article.tags %}
+                <span class="label label-default">#{{tag}}</span>
+            {% endfor %}
         </header>
         <section class="post-summary">
             {% if article.cover_image %}

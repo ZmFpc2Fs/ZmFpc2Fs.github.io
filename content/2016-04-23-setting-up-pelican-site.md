@@ -1,4 +1,5 @@
 title: Setting up a Blog with Pelican
+description: A step-by-step guide on using pelican to generate a full featured blog and then hosting it on github. 
 date: 2016-04-23 7:00AM
 tags: python, pelican
 
