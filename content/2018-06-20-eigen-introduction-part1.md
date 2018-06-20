@@ -1,6 +1,6 @@
 title: Matrix Manipulations using C++ Eigen Library
 subtitle: Matrix data manipulation and operations using C++ and Eigen library
-date: 2018-03-16 07:00 PM
+date: 2018-06-20 07:00 PM
 tags: eigen, C++
 cover_image: /images/eigen_introduciton_part1/abstract-access-close-up-1089438.jpg
 
