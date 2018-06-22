@@ -2,7 +2,7 @@ title: Matrix Manipulations using C++ Eigen Library
 description: A quick start guide to work with matrices and linear algebra operations in C++ using Eigen library.
 date: 2018-06-20 07:00 PM
 tags: eigen, C++
-cover_image: /images/eigen_introduciton_part1/abstract-access-close-up-1089438.jpg
+cover_image: /images/eigen_introduciton_part1/the_matrix.jpg
 
 [Eigen](eigen.tuxfamily.org) is an open source C++ library optimized for handling linear algebra operations such as matrix and vector manipulation and solving linear algebra problems.  Eigen is highly optimized because of its support for vectorized instructions and avoidance of temporary variables when solving expressions because of its use of [C++ expression templates](https://en.wikipedia.org/wiki/Expression_templates). The library is very similar in function to popular Python's [Numpy](http://www.numpy.org/).
 
