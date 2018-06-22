@@ -1,6 +1,6 @@
 title: Setting up a Blog with Pelican
 description: A step-by-step guide on using pelican to generate a full featured blog and then hosting it on github. 
-date: 2016-04-23 7:00AM
+date: 2017-04-23 7:00AM
 tags: python, pelican
 
 I am using [GitHub pages](https://pages.github.com/) to host this blog. The static HTML content is generated from the Markdown text using [Pelican](http://blog.getpelican.com/).  

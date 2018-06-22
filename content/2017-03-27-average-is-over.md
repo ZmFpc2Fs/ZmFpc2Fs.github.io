@@ -1,6 +1,6 @@
 title: Book Review : Average is Over
 description: A thought provoking book by the economist Tyler Cowen about the future of work and work force. At times repettive but 
-date: 2016-03-27 21:52
+date: 2017-03-27 21:52
 tags: books
 cover_image: /images/bookcover/average_is_over.jpg
 

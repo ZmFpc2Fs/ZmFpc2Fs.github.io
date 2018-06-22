@@ -1,6 +1,6 @@
 title: Review : Two Practical Books on Visualizations
 description: Two excellent books on visualization by the author of FlowingData.com. 'Data Points' explains the core principles of visualization and inspires its reader about the effective use of this medium to tell a story about their data. 'Visualize This' offers a more hands on approach to visualizing data
-date: 2016-06-06 21:52
+date: 2017-06-06 21:52
 tags: books, d3.js, visualization
 cover_image: /images/bookcover/visualize_this_data_points.jpg
 D3:
