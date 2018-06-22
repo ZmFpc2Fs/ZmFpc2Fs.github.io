@@ -1,4 +1,4 @@
-title: Matrix Manipulations using C++ Eigen Library
+title: Matrix Manipulations in C++ using Eigen Library
 description: A quick start guide to work with matrices and linear algebra operations in C++ using Eigen library.
 date: 2018-06-20 07:00 PM
 tags: eigen, C++
