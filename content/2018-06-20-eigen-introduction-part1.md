@@ -447,7 +447,7 @@ Eigen is a feature rich library that offers many additional features including s
 
 ### Reference ###
 
-[Code for the Blog](https://github.com/n-log-n/Eigen_Tutorial.git)
-[Official Documentation](http://eigen.tuxfamily.org/dox-3.2/group__TutorialMatrixClass.html)
+- [Code for the Blog](https://github.com/n-log-n/Eigen_Tutorial.git)
+- [Official Documentation](http://eigen.tuxfamily.org/dox-3.2/group__TutorialMatrixClass.html)
 
 
