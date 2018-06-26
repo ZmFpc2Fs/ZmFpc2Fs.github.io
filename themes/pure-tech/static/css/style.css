@@ -211,6 +211,21 @@ img[alt=cover] {
   padding-top: 10px;
 }
 
+#social #container {
+  text-align: center;
+}
+
+#social #container ul {
+  float: left;
+}
+
+#social #container ul li {
+  float: left;
+  padding-left: 10px;
+  list-style-type: none;
+}
+
+
 .highlight pre {
   position: relative;
   background: #263238;
@@ -220,4 +235,3 @@ img[alt=cover] {
   line-height: 1.4;
   border-radius: 4px;
 }
-
