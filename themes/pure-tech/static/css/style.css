@@ -225,7 +225,6 @@ img[alt=cover] {
   list-style-type: none;
 }
 
-
 .highlight pre {
   position: relative;
   background: #263238;
@@ -234,4 +233,39 @@ img[alt=cover] {
   font-size: .9em;
   line-height: 1.4;
   border-radius: 4px;
+}
+
+
+.sbtn {
+    display: inline-block;
+    margin-bottom: 0.25em;
+    padding: 0.5em 1em;
+    font-family: -apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif;
+    font-size: .75em;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-width: 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.sbtn--twitter {
+  background-color: #55acee;
+  color: #fff;
+}
+
+.sbtn--facebook {
+  background-color: #3b5998;
+  color: #fff;
+}
+
+.sbtn--google-plus {
+  background-color: #dd4b39;
+  color: #fff;
+}
+
+.sbtn--linkedin {
+  background-color: #007bb6;
+  color: #fff;
 }
