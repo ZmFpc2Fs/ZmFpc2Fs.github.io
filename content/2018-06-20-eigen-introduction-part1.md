@@ -1,12 +1,12 @@
 title: Matrix Manipulations in C++ using Eigen Library
-description: A quick start guide to work with matrices and linear algebra operations in C++ using Eigen library.
+description: A quick start guide for working with matrices and linear algebra operations in C++ using the Eigen library. The Eigen is a fast and highly optimized library. The use of expression templates allow it to intelligently remove temporary variables avoiding unnecessary copy. The explicit vectorization greatly speed-up certain numeric operation on a variety of platforms. 
 date: 2018-06-20 07:00 PM
 tags: eigen, C++
 cover_image: /images/eigen_introduciton_part1/the_matrix.jpg
 
-[Eigen](eigen.tuxfamily.org) is an open source C++ library optimized for handling linear algebra operations such as matrix and vector manipulation and solving linear algebra problems.  Eigen is highly optimized because of its support for vectorized instructions and avoidance of temporary variables when solving expressions because of its use of [C++ expression templates](https://en.wikipedia.org/wiki/Expression_templates). The library is very similar in function to popular Python's [Numpy](http://www.numpy.org/).
+[Eigen](eigen.tuxfamily.org){:target="_blank"} is an open source C++ library optimized for handling numeric operations such as addition, subtraction, multiplication etc of matrices and arrays along with solving linear algebra equations.  Eigen is feature rich and highly optimized. It offers explicit vectorized instruction for multiple platforms. The use of [C++ expression templates](https://en.wikipedia.org/wiki/Expression_templates){:target="_blank"} allows it to intelligently  avoid temporary variables and enable lazy evaluation. The library is very similar in function to popular Python's [Numpy](http://www.numpy.org/){:target="_blank"}.
 
-Although, the syntax can be a bit tricky at first, but for numeric code, you can gain huge productivity boost by eliminating the need to write explicit for-loops for manipulating matrix data. Additionally, you can benefit from its parallel support to speedup certain operations. 
+Although, the syntax can be a bit tricky at first, but for numeric code, you can gain huge productivity boost by eliminating the need to write explicit for-loops for manipulating matrix or numeric array data. Additionally, you can benefit from its parallel support to speed-up certain operations. 
 
 Here is a quick guide to get you started. 
 
