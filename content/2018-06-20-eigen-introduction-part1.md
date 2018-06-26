@@ -1,10 +1,10 @@
 title: Matrix Manipulations in C++ using Eigen Library
-description: A quick start guide for working with matrices and linear algebra operations in C++ using the Eigen library. The Eigen is a fast and highly optimized library. The use of expression templates allow it to intelligently remove temporary variables avoiding unnecessary copy. The explicit vectorization greatly speed-up certain numeric operation on a variety of platforms. 
+description: A quick start guide for working with matrices and linear algebra operations in C++ using the Eigen library. The Eigen is a fast and highly optimized library. The use of expression templates allow it to intelligently remove temporary variables avoiding unnecessary copying of data. The explicit vectorization greatly speed-up certain numeric operation on a variety of platforms. 
 date: 2018-06-20 07:00 PM
 tags: eigen, C++
 cover_image: /images/eigen_introduciton_part1/the_matrix.jpg
 
-[Eigen](eigen.tuxfamily.org){:target="_blank"} is an open source C++ library optimized for handling numeric operations such as addition, subtraction, multiplication etc of matrices and arrays along with solving linear algebra equations.  Eigen is feature rich and highly optimized. It offers explicit vectorized instruction for multiple platforms. The use of [C++ expression templates](https://en.wikipedia.org/wiki/Expression_templates){:target="_blank"} allows it to intelligently  avoid temporary variables and enable lazy evaluation. The library is very similar in function to popular Python's [Numpy](http://www.numpy.org/){:target="_blank"}.
+[Eigen](eigen.tuxfamily.org){:target="_blank"} is an open source C++ library optimized for handling numeric operations such as addition, subtraction, multiplication etc. of matrices and arrays along with solving linear systems.  Eigen is feature rich and highly optimized. It offers explicit vectorized instruction for multiple platforms. Its use of [C++ expression templates](https://en.wikipedia.org/wiki/Expression_templates){:target="_blank"} allow it to intelligently avoid temporary variables and enable lazy evaluation. The library is very similar in function to the popular Python's [Numpy](http://www.numpy.org/){:target="_blank"}.
 
 Although, the syntax can be a bit tricky at first, but for numeric code, you can gain huge productivity boost by eliminating the need to write explicit for-loops for manipulating matrix or numeric array data. Additionally, you can benefit from its parallel support to speed-up certain operations. 
 
