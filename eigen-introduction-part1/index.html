@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="en">
+    <head>
+	    <title>Faisal's Notes - Matrix Manipulations in C++ using Eigen Library</title>
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link href="/favicon.png" rel="icon">
+        <link rel="alternate"  href="http://iamfaisalkhan.com/feeds/all.atom.xml" type="application/atom+xml" title="Faisal's Notes Full Atom Feed"/>
+        <link rel="alternate" href="http://iamfaisalkhan.com/feeds/atom.xml" type="application/atom+xml" title="Faisal's Notes Atom Feed"/>
+	    <link rel="stylesheet" href="/theme/css/bootstrap.min.css">
+	    <link rel="stylesheet" href="/theme/css/style.css?v=1">
+        <link rel="stylesheet" href="/theme/css/pygment.css?v=1">
+	   	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
+        <style type="text/css">svg:not(:root).svg-inline--fa{overflow:visible}.svg-inline--fa{display:inline-block;font-size:inherit;height:1em;overflow:visible;vertical-align:-.125em}.svg-inline--fa.fa-lg{vertical-align:-.225em}.svg-inline--fa.fa-w-1{width:.0625em}.svg-inline--fa.fa-w-2{width:.125em}.svg-inline--fa.fa-w-3{width:.1875em}.svg-inline--fa.fa-w-4{width:.25em}.svg-inline--fa.fa-w-5{width:.3125em}.svg-inline--fa.fa-w-6{width:.375em}.svg-inline--fa.fa-w-7{width:.4375em}.svg-inline--fa.fa-w-8{width:.5em}.svg-inline--fa.fa-w-9{width:.5625em}.svg-inline--fa.fa-w-10{width:.625em}.svg-inline--fa.fa-w-11{width:.6875em}.svg-inline--fa.fa-w-12{width:.75em}.svg-inline--fa.fa-w-13{width:.8125em}.svg-inline--fa.fa-w-14{width:.875em}.svg-inline--fa.fa-w-15{width:.9375em}.svg-inline--fa.fa-w-16{width:1em}.svg-inline--fa.fa-w-17{width:1.0625em}.svg-inline--fa.fa-w-18{width:1.125em}.svg-inline--fa.fa-w-19{width:1.1875em}.svg-inline--fa.fa-w-20{width:1.25em}.svg-inline--fa.fa-pull-left{margin-right:.3em;width:auto}.svg-inline--fa.fa-pull-right{margin-left:.3em;width:auto}.svg-inline--fa.fa-border{height:1.5em}.svg-inline--fa.fa-li{width:2em}.svg-inline--fa.fa-fw{width:1.25em}.fa-layers svg.svg-inline--fa{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}.fa-layers{display:inline-block;height:1em;position:relative;text-align:center;vertical-align:-12.5%;width:1em}.fa-layers svg.svg-inline--fa{-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-counter,.fa-layers-text{display:inline-block;position:absolute;text-align:center}.fa-layers-text{left:50%;top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-counter{background-color:#ff253a;border-radius:1em;color:#fff;height:1.5em;line-height:1;max-width:5em;min-width:1.5em;overflow:hidden;padding:.25em;right:0;text-overflow:ellipsis;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-bottom-right{bottom:0;right:0;top:auto;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:bottom right;transform-origin:bottom right}.fa-layers-bottom-left{bottom:0;left:0;right:auto;top:auto;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:bottom left;transform-origin:bottom left}.fa-layers-top-right{right:0;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-top-left{left:0;right:auto;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top left;transform-origin:top left}.fa-lg{font-size:1.33333em;line-height:.75em;vertical-align:-.0667em}.fa-xs{font-size:.75em}.fa-sm{font-size:.875em}.fa-1x{font-size:1em}.fa-2x{font-size:2em}.fa-3x{font-size:3em}.fa-4x{font-size:4em}.fa-5x{font-size:5em}.fa-6x{font-size:6em}.fa-7x{font-size:7em}.fa-8x{font-size:8em}.fa-9x{font-size:9em}.fa-10x{font-size:10em}.fa-fw{text-align:center;width:1.25em}.fa-ul{list-style-type:none;margin-left:2.5em;padding-left:0}.fa-ul>li{position:relative}.fa-li{left:-2em;position:absolute;text-align:center;width:2em;line-height:inherit}.fa-border{border:solid .08em #eee;border-radius:.1em;padding:.2em .25em .15em}.fa-pull-left{float:left}.fa-pull-right{float:right}.fa.fa-pull-left,.fab.fa-pull-left,.fal.fa-pull-left,.far.fa-pull-left,.fas.fa-pull-left{margin-right:.3em}.fa.fa-pull-right,.fab.fa-pull-right,.fal.fa-pull-right,.far.fa-pull-right,.fas.fa-pull-right{margin-left:.3em}.fa-spin{-webkit-animation:fa-spin 2s infinite linear;animation:fa-spin 2s infinite linear}.fa-pulse{-webkit-animation:fa-spin 1s infinite steps(8);animation:fa-spin 1s infinite steps(8)}@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}.fa-rotate-90{-webkit-transform:rotate(90deg);transform:rotate(90deg)}.fa-rotate-180{-webkit-transform:rotate(180deg);transform:rotate(180deg)}.fa-rotate-270{-webkit-transform:rotate(270deg);transform:rotate(270deg)}.fa-flip-horizontal{-webkit-transform:scale(-1,1);transform:scale(-1,1)}.fa-flip-vertical{-webkit-transform:scale(1,-1);transform:scale(1,-1)}.fa-flip-horizontal.fa-flip-vertical{-webkit-transform:scale(-1,-1);transform:scale(-1,-1)}:root .fa-flip-horizontal,:root .fa-flip-vertical,:root .fa-rotate-180,:root .fa-rotate-270,:root .fa-rotate-90{-webkit-filter:none;filter:none}.fa-stack{display:inline-block;height:2em;position:relative;width:2em}.fa-stack-1x,.fa-stack-2x{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}.svg-inline--fa.fa-stack-1x{height:1em;width:1em}.svg-inline--fa.fa-stack-2x{height:2em;width:2em}.fa-inverse{color:#fff}.sr-only{border:0;clip:rect(0,0,0,0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.sr-only-focusable:active,.sr-only-focusable:focus{clip:auto;height:auto;margin:0;overflow:visible;position:static;width:auto}</style>
+            
+
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="blog">
+<meta property="og:url" content="http://blog.iamfaisalkhan.com/eigen-introduction-part1/">
+<meta property="article:author" content="https://www.facebook.com/faisal.khan">
+<meta property="og:title" content="Matrix Manipulations in C++ using Eigen Library">
+<meta property="og:description" content="A quick start guide for working with matrices and linear algebra operations in C++ using the Eigen library. The Eigen is a fast and highly optimized library. The use of expression templates allow it to intelligently remove temporary variables avoiding unnecessary copying of data. The explicit vectorization greatly speed-up certain numeric operation on a variety of platforms.">
+<meta name="description" content="A quick start guide for working with matrices and linear algebra operations in C++ using the Eigen library. The Eigen is a fast and highly optimized library. The use of expression templates allow it to intelligently remove temporary variables avoiding unnecessary copying of data. The explicit vectorization greatly speed-up certain numeric operation on a variety of platforms."/>
+<meta property="og:description" content="A quick start guide for working with matrices and linear algebra operations in C++ using the Eigen library. The Eigen is a fast and highly optimized library. The use of expression templates allow it to intelligently remove temporary variables avoiding unnecessary copying of data. The explicit vectorization greatly speed-up certain numeric operation on a variety of platforms.">
+<meta property="og:image" content="/images/eigen_introduciton_part1/the_matrix.jpg">
+
+	</head>
+	
+	<body>
+		<header class="header">
+			<div class="header-content">
+                <div class="row">
+                    <div class="col-sm-9">
+                        <a class="logo" href="#">
+                            <img src="/theme/images/faisal.png?v=1" alt="Faisal's Notes">
+                        </a>
+                        <h1 class="site-title">
+                            <a href="/">Faisal's Notes</a>
+                        </h1>
+                        <h2 class="site-description">Data | Code | Visualization</h2>
+                    </div>
+                    <div class="col-sm-3">
+                        <div>
+                            <ul>
+                                <li><a href="http://www.iamfaisalkhan.com/feeds/all.atom.xml"><i class="fa fa-rss"></i></a></li>
+                                <li><a href="https://www.linkedin.com/in/faisal-khan-8686b040"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="https://twitter.com/phyisal"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="https://github.com/n-log-n"><i class="fa fa-github"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+			</div>
+        </header>
+
+        <div class="container">
+        	<div class="content">
+        		<div class="row">
+        			<div class="col-sm-3">
+        				<div class="sidebar">
+        					<h3> TAGS </h3>
+	    					<ul>
+	    							<li><a href="/tag/books" > #books </a></li>
+	    							<li><a href="/tag/C++" > #C++ </a></li>
+	    							<li><a href="/tag/d3.js" > #d3.js </a></li>
+	    							<li><a href="/tag/eigen" > #eigen </a></li>
+	    							<li><a href="/tag/pelican" > #pelican </a></li>
+	    							<li><a href="/tag/python" > #python </a></li>
+	    							<li><a href="/tag/visualization" > #visualization </a></li>
+	    						
+	    					</ul>
+	    				</div>
+                        
+        			</div>
+        			<div class="col-sm-9">
+
+    <article class="entry">
+        <header class="entry-head">
+            <span class="entry-meta">
+                <time datetime="June 20, 2018">June 20, 2018</time> 
+            </span>
+            <h2 class="entry-title"><a href="http://blog.iamfaisalkhan.com/eigen-introduction-part1/">Matrix Manipulations in C++ using Eigen Library</a></h2>
+                <span class="label label-default">#eigen</span>
+                <span class="label label-default">#C++</span>
+        </header>
+        <section class="post-summary">
+                        <span class="caption"><img src="/images/eigen_introduciton_part1/the_matrix.jpg" height=250px></span>
+            <p><a href="eigen.tuxfamily.org" target="_blank">Eigen</a> is an open source C++ library optimized for handling numeric operations such as addition, subtraction, multiplication etc. of matrices and arrays along with solving linear systems.  Eigen is feature rich and highly optimized. It offers explicit vectorized instruction for multiple platforms. Its use of <a href="https://en.wikipedia.org/wiki/Expression_templates" target="_blank">C++ expression templates</a> allow it to intelligently avoid temporary variables and enable lazy evaluation. The library is very similar in function to the popular Python's <a href="http://www.numpy.org/" target="_blank">Numpy</a>.</p>
+<p>Although, the syntax can be a bit tricky at first, but for numeric code, you can gain huge productivity boost by eliminating the need to write explicit for-loops for manipulating matrix or numeric array data. Additionally, you can benefit from its parallel support to speed-up certain operations. </p>
+<p>Here is a quick guide to get you started. </p>
+<h2>Quick Example</h2>
+<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;Eigen/Dense&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="c1">// Declare and initialize matrices  </span>
+<span class="n">Eigen</span><span class="o">::</span><span class="n">MatrixXi</span> <span class="n">A</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+<span class="n">A</span> <span class="o">&lt;&lt;</span>  <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="n">Eigen</span><span class="o">::</span><span class="n">MatrixXi</span> <span class="n">B</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="n">B</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
+     <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
+     <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">;</span>
+
+<span class="n">Eigen</span><span class="o">::</span><span class="n">MatrixXi</span> <span class="n">C</span> <span class="o">=</span> <span class="n">A</span> <span class="o">+</span> <span class="n">B</span><span class="p">.</span><span class="n">transpose</span><span class="p">();</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">C</span><span class="o">&lt;&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</pre></div>
+
+
+<p>Here we have declared two matrices, <em>A &amp; B</em>, initialized them with some values, using comma value initialization, and then added them up together. Since the shape of the second matrix <em>B</em> is incompatible for addition, we added a transpose of it. </p>
+<p>In order to compile this code using GCC compiler, simply download (or clone) the <a href="https://github.com/eigenteam/eigen-git-mirror">Eigen headers</a> and include them into path:</p>
+<div class="highlight"><pre><span></span>g++ -I./&lt;path-to-eigen-dir&gt; -std<span class="o">=</span>c++11 -Wall -O3 -fPIC  -c example.cpp -o example
+</pre></div>
+
+
+<h2>The Matrix Class</h2>
+<p>Most of linear algebra operations, in Eigen, are carried through the template class - <em>Matrix</em>. It has six arguments for the template, where first three are required. These arguments specify the type, size and storage layout among other configurations. </p>
+<div class="highlight"><pre><span></span><span class="n">Matrix</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">Scalar</span><span class="p">,</span>        <span class="c1">// Data Type e.g int, float double</span>
+       <span class="kt">int</span> <span class="n">RowsAtCompileTime</span><span class="p">,</span>  <span class="c1">// umber of Rows at compile time or Dynamic for variable size rows</span>
+       <span class="kt">int</span> <span class="n">ColsAtCompileTime</span><span class="p">,</span>  <span class="c1">// Number of Columns at compile time or Dynamic for variable size cols.</span>
+       <span class="kt">int</span> <span class="n">Options</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>        <span class="c1">// Options such as RowMajor,  ColMajor etc. </span>
+       <span class="kt">int</span> <span class="n">MaxRowsAtCompileTime</span> <span class="o">=</span>  <span class="n">RowsAtCompileTime</span><span class="p">,</span> <span class="c1">// By default same as rows at compile time. </span>
+       <span class="kt">int</span> <span class="n">MaxColsAtCompileTime</span> <span class="o">=</span>  <span class="n">ColsAtCompileTime</span><span class="p">,</span> <span class="c1">// By default same as cols at compile time. </span>
+       <span class="o">&gt;</span>
+</pre></div>
+
+
+<p>Using the template argument, We can declare a <em>4x4</em> matrix as follows:</p>
+<div class="highlight"><pre><span></span><span class="n">Matrix</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="o">&gt;</span> <span class="n">A</span><span class="p">;</span>
+</pre></div>
+
+
+<p>The scalar type is integer and number of rows and columns are fixed as 4. Instead of typing the full template syntax, we can use  the built-in typedef'd types. So instead of the above syntax, we can just say...</p>
+<div class="highlight"><pre><span></span><span class="n">Matrix4i</span> <span class="n">A</span><span class="p">;</span>
+</pre></div>
+
+
+<p>.. by using the following typedef type provided in the library. </p>
+<div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="n">Matrix</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="o">&gt;</span> <span class="n">Matrix4i</span><span class="p">;</span>
+</pre></div>
+
+
+<p>There are a whole lot of these convenient types defined in the library and they follow the following general forma:</p>
+<div class="highlight"><pre><span></span><span class="mf">1.</span> <span class="k">typedef</span> <span class="n">Matrix</span><span class="o">&lt;</span><span class="n">type</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="o">&gt;</span> <span class="n">MatrixNt</span>
+<span class="mf">2.</span> <span class="k">typedef</span> <span class="n">Matrix</span><span class="o">&lt;</span><span class="n">type</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;</span> <span class="n">VectorNt</span>
+<span class="mf">3.</span> <span class="k">typedef</span> <span class="n">Matrix</span><span class="o">&lt;</span><span class="n">type</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">&gt;</span> <span class="n">RowVectorNt</span>
+</pre></div>
+
+
+<p>where: </p>
+<ul>
+<li>N specify the dimensions of the matrix and can be 2, 3, 4, or X for Dynamic (Explained next)</li>
+<li>t is the data-type can be i (int), f (float), d (double). There are additional options defined for complex types as well. </li>
+</ul>
+<h2>Dynamic Size Matrices</h2>
+<p>So far we have only looked at declaring fixed size matrices. The dynamic size matrices can be declared by either specifying <em>Dynamic</em> for the size of the rows/cols as the template argument or using the typedef syntax. </p>
+<div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">rows</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">cols</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="n">Matrix</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">Dynamic</span> <span class="n">Dynamic</span><span class="o">&gt;</span> <span class="n">A</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">);</span>
+
+<span class="c1">// Or</span>
+
+<span class="n">Eigen</span><span class="o">::</span><span class="n">MatrixXi</span> <span class="n">B</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+<span class="n">B</span> <span class="o">&lt;&lt;</span>  <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span>
+      <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">;</span>
+</pre></div>
+
+
+<p>Whenever you have a choice between dynamic or fixed size Matrix, the fixed size one will typically be more optimized. The fixed size matrices avoids dynamic memory allocation and are further optimized using <a href="https://en.wikipedia.org/wiki/Loop_unrolling" target="_blank">loop unrolling</a>. </p>
+<h2>The Array Class</h2>
+<p>The multiplication, division and similar operations offered by the <em>Matrix</em> class are done following the linear algebra rules. In order to use co-efficient (or element-wise) operations, we have to use the the <em>Array</em> class. This class is very similar in declaration to the <em>Matrix</em> class. </p>
+<div class="highlight"><pre><span></span><span class="n">Array</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">Scalar</span><span class="p">,</span> <span class="kt">int</span> <span class="n">RowsAtCompileTime</span><span class="p">,</span> <span class="kt">int</span> <span class="n">ColsAtCompileTime</span><span class="o">&gt;</span>
+</pre></div>
+
+
+<p>Just like in the case of the <em>Matrix class</em>, we can use the typedef notations of <em>ArrayNt</em> for 1-dimensional arrays. The multi-dimensional arrays are defined as <em>ArrayXXt</em>, where the <em>XX</em> specify the dimensions and <em>t</em> is used for data type. As an example consider defining two 2-D arrays and then multiplying them together. Here multiplication will take place element wise. </p>
+<div class="highlight"><pre><span></span><span class="n">Eigen</span><span class="o">::</span><span class="n">Array22d</span><span class="p">;</span>
+<span class="n">A</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span>
+     <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">;</span>
+
+<span class="n">Eigen</span><span class="o">::</span><span class="n">ArrayXXd</span> <span class="n">B</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="n">B</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span>
+     <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">;</span>
+
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Array A </span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">A</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Array B </span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">B</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Element wise multiplication of A * B</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">A</span> <span class="o">*</span> <span class="n">B</span><span class="p">)</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span> <span class="c1">// 2 20</span>
+                                                                   <span class="c1">// 8 27</span>
+</pre></div>
+
+
+<h3>Array Interface to Matrix</h3>
+<p>Instead of explicitly defining an <em>Array</em> object for element-wise operations, we have the option of using the array interface of an existing <em>Matrix</em> objects to do mix types of operations. </p>
+<div class="highlight"><pre><span></span><span class="n">Eigen</span><span class="o">::</span><span class="n">MatrixXf</span> <span class="n">Am</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="n">Am</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span>
+      <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">;</span>
+<span class="n">Eigen</span><span class="o">::</span><span class="n">MatrixXf</span> <span class="n">Bm</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="n">Bm</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span>
+      <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">;</span>
+
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Matrix A </span><span class="se">\n</span><span class="s">&quot;</span><span class="o">&lt;&lt;</span><span class="n">Am</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Matrix B </span><span class="se">\n</span><span class="s">&quot;</span><span class="o">&lt;&lt;</span><span class="n">Am</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">Am</span><span class="p">.</span><span class="n">array</span><span class="p">()</span> <span class="o">*</span> <span class="n">Bm</span><span class="p">.</span><span class="n">array</span><span class="p">())</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</pre></div>
+
+
+<h2>Initializing Matrix and Array values</h2>
+<h3>Comma Initializer</h3>
+<p>We have already seen few examples of initializing a matrix using comma separated values. </p>
+<div class="highlight"><pre><span></span><span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix3f</span> <span class="n">A</span><span class="p">;</span>
+<span class="n">A</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span> <span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span>
+    <span class="mi">14</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span>
+    <span class="mi">6</span> <span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">;</span>
+</pre></div>
+
+
+<p>There are few additional methods.</p>
+<h3>Special Matrices and Arrays</h3>
+<p>Another way to initialize matrices and arrays is using the static methods like <em>Zero()</em> , <em>Ones()</em>, <em>Identity()</em> or <em>Random()</em>. </p>
+<div class="highlight"><pre><span></span><span class="n">Matrix2f</span> <span class="n">A</span> <span class="o">=</span> <span class="n">ArrayXXf</span><span class="o">::</span><span class="n">Zero</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">A</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>    <span class="c1">// 0 0</span>
+                   <span class="c1">//   0 0</span>
+
+<span class="n">Matrix3f</span> <span class="n">B</span> <span class="o">=</span> <span class="n">Matrix3f</span><span class="o">::</span><span class="n">Zero</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+<span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">B</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>     <span class="c1">// 0 0 0</span>
+                   <span class="c1">// 0 0 0</span>
+                   <span class="c1">// 0 0 0</span>
+
+<span class="n">Matrix3f</span> <span class="n">C</span> <span class="o">=</span> <span class="n">Matrix3f</span><span class="o">::</span><span class="n">Ones</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+<span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">C</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>    <span class="c1">// 1 1 1</span>
+                  <span class="c1">// 1 1 1</span>
+                  <span class="c1">// 1 1 1</span>
+</pre></div>
+
+
+<p>The <strong>Random()</strong> method will fill the matrix or array with random coefficients. Similarly the static method <strong>Constant(value)</strong> sets all the coefficients to the <em>value</em>.</p>
+<h3>Using existing data.</h3>
+<p>The raw C/C++ buffers can be interfaced with Eigen using the <strong>Map</strong> class. The Map object has a type defined as:</p>
+<div class="highlight"><pre><span></span><span class="n">Map</span><span class="o">&lt;</span><span class="n">Matrix</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">Scalar</span><span class="p">,</span> <span class="kt">int</span> <span class="n">RowsAtCompileTime</span><span class="p">,</span> <span class="kt">int</span> <span class="n">ColsAtCompileTime</span><span class="o">&gt;</span> <span class="o">&gt;</span> 
+</pre></div>
+
+
+<p>The main argument supplied to the <em>Map</em>'s' template is of type <strong>Eigen::Matrix</strong>. Thus, the data type and number of elements in the buffer being interfaced should match the supplied matrix type. </p>
+<p>In the example below we interface an integer array of length 9 to 3 by 3 matrix.</p>
+<div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">data</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">};</span>
+
+<span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;Column Major 3 by 3 Matrix&quot;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+<span class="n">Map</span><span class="o">&lt;</span><span class="n">Matrix</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="o">&gt;&gt;</span> <span class="n">A</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+<span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">A</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>      <span class="c1">// 1 4 7</span>
+                    <span class="c1">//2 5 8</span>
+                    <span class="c1">//3 6 9</span>
+</pre></div>
+
+
+<p>By default the Eigen library uses column-major order to process the data within the raw buffer. However this can be changed by explicitly specifying the storage order of the underlying Matrix. </p>
+<div class="highlight"><pre><span></span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;Row Major 3 by 3 Matrix&quot;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+<span class="n">Map</span><span class="o">&lt;</span><span class="n">Matrix</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">RowMajor</span><span class="o">&gt;&gt;</span> <span class="n">B</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+<span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">B</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>             <span class="c1">//1 2 3</span>
+                         <span class="c1">//4 5 6</span>
+                         <span class="c1">//7 8 9</span>
+</pre></div>
+
+
+<p>An additional argument to the Map is the <strong>Stride</strong>. The stride offers further control over the layout of the data being processed from the raw buffer. For example, in the following example, we are skipping over an element while interfacing with the raw buffer.</p>
+<div class="highlight"><pre><span></span>  <span class="kt">int</span> <span class="n">data</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">};</span>
+
+  <span class="n">Map</span><span class="o">&lt;</span><span class="n">Matrix</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="o">&gt;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Stride</span><span class="o">&lt;</span><span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="o">&gt;&gt;</span> <span class="n">A</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+  <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">A</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>        <span class="c1">// 1  7</span>
+                        <span class="c1">// 3  9</span>
+                        <span class="c1">// 5 11</span>
+</pre></div>
+
+
+<p>The <em>Stride</em> class has two parameters: (i) OuterStrideAtComileTime (value 6 above) and (ii) InnerStrideAtCompileTime (value 2 above). </p>
+<p>The <strong>inner stride</strong> controls how many elements to skip between two consecutive entries within a given column (row) for column-major (row-major) matrix. </p>
+<p>The <strong>outer stride</strong> specifies the increment between two consecutive columns (rows) of a column-major (row-major) matrix. </p>
+<p>In the example above, we used an outer stride of 6 and an inner stride of 2. The outer stride of 6 will skip over 6 elements between each column. More specifically, the first column will start at the first  elements and the second column will start at the 7th element. The inner stride of 2 means that we want to skip an element within the consecutive elements of a given column. </p>
+<p>The figure below show this example visually using both column-major and row-major order. </p>
+<p><img alt="post" src="/images/eigen_introduciton_part1/strides_example1.png"></p>
+<h2>Performing Basic Operations</h2>
+<p>Eigen supports a variety of basic arithmetic operations. The Matrix class provides overloaded arithmetic functions that supports linear-algebra operations. The element-wise or other mixed operations can be performed through the Array interface. </p>
+<div class="highlight"><pre><span></span><span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix3f</span> <span class="n">A</span><span class="p">;</span>
+<span class="n">A</span> <span class="o">&lt;&lt;</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span>
+   <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
+   <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="n">Eigen</span><span class="o">::</span><span class="n">MatrixXf</span> <span class="n">B</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+<span class="c1">// Matrix of all ones. </span>
+<span class="n">B</span><span class="p">.</span><span class="n">setOnes</span><span class="p">();</span>
+
+<span class="n">Eigen</span><span class="o">::</span><span class="n">MatrixXf</span> <span class="n">C</span><span class="p">;</span>
+
+<span class="c1">// Operations such as matrix-matrix or matrix-vector addition, subtraction, multiplication </span>
+<span class="c1">//  that follow linear algebraic rules are supported by the Matrix class. </span>
+
+<span class="n">C</span> <span class="o">=</span> <span class="n">A</span> <span class="o">+</span> <span class="n">B</span><span class="p">;</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">A</span> <span class="o">-</span> <span class="n">B</span><span class="p">;</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">A</span> <span class="o">*</span> <span class="n">B</span><span class="p">;</span>
+</pre></div>
+
+
+<p>Similarly, we can multiply and divide by a scalar variable:</p>
+<div class="highlight"><pre><span></span><span class="n">Eigen</span><span class="o">::</span><span class="n">MatrixXf</span> <span class="n">A</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="n">A</span> <span class="o">&lt;&lt;</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span>
+   <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">;</span>
+
+<span class="c1">// Scale the matrix values by 2. </span>
+<span class="n">Eigen</span><span class="o">::</span><span class="n">MatrixXf</span> <span class="n">C</span> <span class="o">=</span> <span class="n">A</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+<span class="c1">// Same as above without assigning the values to an additional Matrix. </span>
+<span class="n">A</span> <span class="o">*=</span> <span class="mf">0.5</span><span class="p">;</span>
+</pre></div>
+
+
+<p>All operations involving vectors are just the special case of <em>Nx1</em> matrix. You can multiply a matrix with a vector as long as the rules of matrix-vector multiplication are satisfied. </p>
+<div class="highlight"><pre><span></span><span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix2f</span> <span class="n">A</span><span class="p">;</span>
+<span class="n">A</span> <span class="o">&lt;&lt;</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span>
+   <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">;</span>
+
+<span class="n">Eigen</span><span class="o">::</span><span class="n">Vector2f</span> <span class="n">B</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">Eigen</span><span class="o">::</span><span class="n">Vector2f</span> <span class="n">C</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+
+
+<span class="n">cout</span> <span class="o">&lt;&lt;</span><span class="s">&quot; A * B</span><span class="se">\n</span><span class="s">&quot;</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">A</span> <span class="o">*</span> <span class="n">B</span><span class="p">)</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Vector * Vector&quot;</span><span class="o">&lt;&lt;</span><span class="n">B</span><span class="p">.</span><span class="n">transpose</span><span class="p">()</span> <span class="o">*</span> <span class="n">C</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</pre></div>
+
+
+<p>We can also compute the sum, product and max/min element of a matrix. </p>
+<div class="highlight"><pre><span></span><span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix3f</span> <span class="n">A</span><span class="p">;</span>
+<span class="n">A</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span> <span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span>
+   <span class="mi">14</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span>
+   <span class="mi">6</span> <span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">;</span>
+
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;A</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">&lt;&lt;</span><span class="n">A</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Sum of A = &quot;</span> <span class="o">&lt;&lt;</span><span class="n">A</span><span class="p">.</span><span class="n">sum</span><span class="p">()</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Overall Max of A = &quot;</span> <span class="o">&lt;&lt;</span><span class="n">A</span><span class="p">.</span><span class="n">maxCoeff</span><span class="p">()</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Overall Min of A = &quot;</span> <span class="o">&lt;&lt;</span><span class="n">A</span><span class="p">.</span><span class="n">minCoeff</span><span class="p">()</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+<span class="n">cout</span><span class="o">&lt;&lt;</span> <span class="s">&quot;Max of A along rows = &quot;</span> <span class="o">&lt;&lt;</span><span class="n">A</span><span class="p">.</span><span class="n">rowwise</span><span class="p">().</span><span class="n">maxCoeff</span><span class="p">().</span><span class="n">transpose</span><span class="p">()</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+<span class="n">cout</span><span class="o">&lt;&lt;</span> <span class="s">&quot;Max of A along cols = &quot;</span> <span class="o">&lt;&lt;</span><span class="n">A</span><span class="p">.</span><span class="n">colwise</span><span class="p">().</span><span class="n">maxCoeff</span><span class="p">()</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+<span class="n">cout</span><span class="o">&lt;&lt;</span> <span class="s">&quot;Min of A along rows = &quot;</span> <span class="o">&lt;&lt;</span><span class="n">A</span><span class="p">.</span><span class="n">rowwise</span><span class="p">().</span><span class="n">minCoeff</span><span class="p">().</span><span class="n">transpose</span><span class="p">()</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+<span class="n">cout</span><span class="o">&lt;&lt;</span> <span class="s">&quot;Min of A along cols = &quot;</span> <span class="o">&lt;&lt;</span><span class="n">A</span><span class="p">.</span><span class="n">colwise</span><span class="p">().</span><span class="n">minCoeff</span><span class="p">()</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Sum of diagonal elements = &quot;</span> <span class="o">&lt;&lt;</span><span class="n">A</span><span class="p">.</span><span class="n">trace</span><span class="p">()</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</pre></div>
+
+
+<p>In addition to above few examples, there are many other <a href="http://eigen.tuxfamily.org/dox/group__TutorialMatrixArithmetic.html" target="_blank">supported operation</a>. Many of these operations can also be applied to a portion of the matrix or array using block operations. </p>
+<h2>Block Operations</h2>
+<p>Eigen offers operations that can be used to manipulate or extract just a portion of a matrix or array. These block expressions can  either be used as <em>rvalues</em> or as <em>lvalues</em>. The <strong>block(i, j, p, q)</strong> operation allows us to specify a rectangular block of size <em>p by q</em> starting at position <em>i</em> and <em>j</em>. </p>
+<div class="highlight"><pre><span></span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;Block of size 2, 2 starting at 1, 1</span><span class="se">\n</span><span class="s">&quot;</span><span class="o">&lt;&lt;</span><span class="n">A</span><span class="p">.</span><span class="n">block</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</pre></div>
+
+
+<p>Similarly, individual rows and cols of an array or matrix can be manipulated as a special case of block operations, using <em>row(i)</em> or <em>col(i)</em> expressions. </p>
+<div class="highlight"><pre><span></span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;Row 1 of the Matrix A.row(0)</span><span class="se">\n</span><span class="s">&quot;</span><span class="o">&lt;&lt;</span><span class="n">A</span><span class="p">.</span><span class="n">row</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+
+<span class="n">A</span><span class="p">.</span><span class="n">row</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="n">A</span><span class="p">.</span><span class="n">row</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="mi">3</span><span class="p">;</span>
+
+<span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;A.row(0)*3</span><span class="se">\n</span><span class="s">&quot;</span><span class="o">&lt;&lt;</span><span class="n">A</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</pre></div>
+
+
+<p>Check out the official documentation for more <a href="http://eigen.tuxfamily.org/dox-3.2/group__TutorialBlockOperations.html" target="_blank">examples</a> of block operations. </p>
+<h2>Slicing</h2>
+<p>There is no direct support for slicing in Eigen as yet. If you are familiar with Numpy, slicing is a very handy feature. However, we can use the <strong>Map</strong> class to mimic this feature. The <em>data()</em> interface of a matrix or array gives us direct access (pointer) to the the underlying storage of the matrix class and combining that with <em>Map</em>, we can slice the data in any way. </p>
+<p>Lets look at few examples of slicing columns of an existing matrix. </p>
+<div class="highlight"><pre><span></span><span class="n">Matrix4i</span> <span class="n">A</span><span class="p">;</span>
+<span class="n">A</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span>
+     <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span>
+     <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span>
+     <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">;</span>
+<span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;Original Matrix </span><span class="se">\n</span><span class="s">&quot;</span><span class="o">&lt;&lt;</span><span class="n">A</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+
+<span class="c1">// Using the raw pointer to underlying storage, we can use the Map class to slice a matrix.  </span>
+<span class="n">Map</span><span class="o">&lt;</span><span class="n">MatrixXi</span><span class="o">&gt;</span> <span class="n">B</span><span class="p">(</span><span class="n">A</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+
+<span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;Slicing first two columns </span><span class="se">\n</span><span class="s">&quot;</span><span class="o">&lt;&lt;</span><span class="n">B</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span><span class="c1">//  1  2</span>
+                                              <span class="c1">//  5  6</span>
+                                              <span class="c1">//  9 10</span>
+                                              <span class="c1">// 13 14</span>
+<span class="c1">// Some pointer arithmetic to skip the first eight values (two columns). </span>
+<span class="n">Map</span><span class="o">&lt;</span><span class="n">MatrixXi</span><span class="o">&gt;</span> <span class="n">C</span><span class="p">(</span><span class="n">A</span><span class="p">.</span><span class="n">data</span><span class="p">()</span><span class="o">+</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;Slicing last two columns </span><span class="se">\n</span><span class="s">&quot;</span><span class="o">&lt;&lt;</span><span class="n">C</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span> <span class="c1">//  3  4</span>
+                                              <span class="c1">//  7  8</span>
+                                              <span class="c1">// 11 12</span>
+                                              <span class="c1">// 15 16</span>
+</pre></div>
+
+
+<p>Similarly, we can pair the <em>Map</em> with the <em>Stride</em> for more complex options of slicing. For example, the following code, will fetch the first and third column from above Matrix A. </p>
+<div class="highlight"><pre><span></span><span class="n">Map</span><span class="o">&lt;</span><span class="n">MatrixXi</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">OuterStride</span><span class="o">&lt;</span><span class="mi">8</span><span class="o">&gt;&gt;</span> <span class="n">B</span><span class="p">(</span><span class="n">A</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+
+<span class="c1">// Or</span>
+
+<span class="n">Map</span><span class="o">&lt;</span><span class="n">MatrixXi</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">OuterStride</span><span class="o">&lt;&gt;&gt;</span> <span class="n">B</span><span class="p">(</span><span class="n">A</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">OuterStride</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Here, we have used the <strong>OuterStride</strong> interface with the stride value of 8. The <em>OuterStride</em> and similarly <em>InnerStride</em> are convenient specialization classes of <em>Stride</em> with the one of the value set to 0. For instance, the <em>OuterStride</em> is same as using <em><code>Stride &lt;Value, 0&gt;</code></em>. </p>
+<p>Few examples of slicing rows:</p>
+<div class="highlight"><pre><span></span><span class="c1">// Slicing first two rows. </span>
+<span class="n">Map</span><span class="o">&lt;</span><span class="n">MatrixXi</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">OuterStride</span><span class="o">&lt;</span><span class="mi">4</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">A</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="c1">// 1 2 3 4</span>
+                                                <span class="c1">// 5 6 7 8</span>
+
+<span class="c1">// Slicing first and third row. </span>
+<span class="n">Map</span><span class="o">&lt;</span><span class="n">MatrixXi</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Stride</span><span class="o">&lt;</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">A</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="c1">// 1  2  3  4</span>
+                                               <span class="c1">// 9 10 11 12</span>
+</pre></div>
+
+
+<h2>Broadcasting</h2>
+<p>Broadcasting is the idea of constructing an intermediate representation of a vector by replicating its entries in one direction (rows or columns) such that it is possible to perform an operation on a different sized matrix. Eigen supports broadcasting.  Here is a simple example of adding a vector to the matrix. </p>
+<div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">data</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">};</span>
+
+<span class="n">Map</span><span class="o">&lt;</span><span class="n">Matrix3i</span><span class="o">&gt;</span> <span class="n">A</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+<span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;Matrix A </span><span class="se">\n</span><span class="s">&quot;</span><span class="o">&lt;&lt;</span><span class="n">A</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span> <span class="c1">// 1 4 7</span>
+                              <span class="c1">// 2 5 8</span>
+                              <span class="c1">// 3 6 9</span>
+
+<span class="n">Vector3i</span> <span class="n">B</span><span class="p">;</span>
+<span class="n">B</span> <span class="o">&lt;&lt;</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">;</span>
+<span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;Vector B</span><span class="se">\n</span><span class="s">&quot;</span><span class="o">&lt;&lt;</span><span class="n">B</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span> <span class="c1">// 4</span>
+                            <span class="c1">// 5</span>
+                            <span class="c1">// 6</span>
+
+<span class="c1">//  Broadcast to columns</span>
+<span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">A</span><span class="p">.</span><span class="n">colwise</span><span class="p">()</span><span class="o">+</span><span class="n">B</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 5  8 11</span>
+                            <span class="c1">// 7 10 13</span>
+                            <span class="c1">// 9 12 15</span>
+
+<span class="c1">// Broadcast to rows </span>
+<span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">A</span><span class="p">.</span><span class="n">rowwise</span><span class="p">()</span><span class="o">+</span><span class="n">B</span><span class="p">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span> <span class="c1">// 5  9 13</span>
+                                       <span class="c1">// 6 10 14</span>
+                                       <span class="c1">// 7 11 15</span>
+</pre></div>
+
+
+<h2>Summary</h2>
+<p>Eigen is a feature rich library that offers many additional features including support for linear solvers, sparse matrices, and multi-threading through OpenMP to name just the few. In a future post, we will try to cover some of these topics in more detail.  </p>
+<h3>Reference</h3>
+<ul>
+<li><a href="https://github.com/n-log-n/Eigen_Tutorial.git">Code for the Blog</a></li>
+<li><a href="http://eigen.tuxfamily.org/dox-3.2/group__TutorialMatrixClass.html">Official Documentation</a></li>
+</ul>
+        </section>
+    </article> 
+<section>
+    <hr />
+    <h4> Share On: </h4>
+    <div id="social">
+      <div id="container">
+         <ul>
+            <li>
+               <a href="https://twitter.com/intent/tweet?via=phyisal&text=Matrix Manipulations in C++ using Eigen Library http://blog.iamfaisalkhan.com/eigen-introduction-part1/" class="sbtn sbtn--twitter" data-show-count="false"><svg class="svg-inline--fa fa-twitter fa-w-16 fa-fw" aria-hidden="true" data-fa-processed="" data-prefix="fab" data-icon="twitter" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg><span> Twitter</span></a>
+            </li>
+
+            <li>
+               <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iamfaisalkhan.com/eigen-introduction-part1/&;src=sdkpreparse" class="sbtn sbtn--facebook">
+                <svg class="svg-inline--fa fa-facebook fa-w-14 fa-fw" aria-hidden="true" data-fa-processed="" data-prefix="fab" data-icon="facebook" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M448 56.7v398.5c0 13.7-11.1 24.7-24.7 24.7H309.1V306.5h58.2l8.7-67.6h-67v-43.2c0-19.6 5.4-32.9 33.5-32.9h35.8v-60.5c-6.2-.8-27.4-2.7-52.2-2.7-51.6 0-87 31.5-87 89.4v49.9h-58.4v67.6h58.4V480H24.7C11.1 480 0 468.9 0 455.3V56.7C0 43.1 11.1 32 24.7 32h398.5c13.7 0 24.8 11.1 24.8 24.7z"></path></svg>
+                <span> Facebook</span></a>
+              </a>
+            </li>
+
+            <li>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://blog.iamfaisalkhan.com/eigen-introduction-part1/" class="sbtn sbtn--linkedin" title="Share on LinkedIn"><svg class="svg-inline--fa fa-linkedin fa-w-14 fa-fw" aria-hidden="true" data-fa-processed="" data-prefix="fab" data-icon="linkedin" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>
+                 <span> LinkedIn</span></a> 
+            </li>
+
+            <li>
+              <a href="https://plus.google.com/share?url=http://blog.iamfaisalkhan.com/eigen-introduction-part1/" class="sbtn sbtn--google-plus" title="Share on Google Plus">
+                <svg class="svg-inline--fa fa-google-plus fa-w-16 fa-fw" aria-hidden="true" data-fa-processed="" data-prefix="fab" data-icon="google-plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M248 8C111.1 8 0 119.1 0 256s111.1 248 248 248 248-111.1 248-248S384.9 8 248 8zm-70.7 372c-68.8 0-124-55.5-124-124s55.2-124 124-124c31.3 0 60.1 11 83 32.3l-33.6 32.6c-13.2-12.9-31.3-19.1-49.4-19.1-42.9 0-77.2 35.5-77.2 78.1s34.2 78.1 77.2 78.1c32.6 0 64.9-19.1 70.1-53.3h-70.1v-42.6h116.9c1.3 6.8 1.9 13.6 1.9 20.7 0 70.8-47.5 121.2-118.8 121.2zm230.2-106.2v35.5H372v-35.5h-35.5v-35.5H372v-35.5h35.5v35.5h35.2v35.5h-35.2z"></path></svg>
+                <span> Google+</span>
+              </a>
+
+            </li>
+         </ul>
+      </div>
+    </div>
+</section>
+
+
+
+
+  <!-- <a href="https://plus.google.com/share?url=https%3A%2F%2Fmtlynch.io%2Fwhy-i-quit-google%2F" class="btn btn--google-plus" title="Share on Google Plus"><svg class="svg-inline--fa fa-google-plus fa-w-16 fa-fw" aria-hidden="true" data-fa-processed="" data-prefix="fab" data-icon="google-plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M248 8C111.1 8 0 119.1 0 256s111.1 248 248 248 248-111.1 248-248S384.9 8 248 8zm-70.7 372c-68.8 0-124-55.5-124-124s55.2-124 124-124c31.3 0 60.1 11 83 32.3l-33.6 32.6c-13.2-12.9-31.3-19.1-49.4-19.1-42.9 0-77.2 35.5-77.2 78.1s34.2 78.1 77.2 78.1c32.6 0 64.9-19.1 70.1-53.3h-70.1v-42.6h116.9c1.3 6.8 1.9 13.6 1.9 20.7 0 70.8-47.5 121.2-118.8 121.2zm230.2-106.2v35.5H372v-35.5h-35.5v-35.5H372v-35.5h35.5v35.5h35.2v35.5h-35.2z"></path></svg><!-- <i class="fab fa-fw fa-google-plus" aria-hidden="true"></i> -->
+    <!-- <span> Google+</span></a> -->
+
+<!--   <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fmtlynch.io%2Fwhy-i-quit-google%2F" class="btn btn--linkedin" title="Share on LinkedIn"><svg class="svg-inline--fa fa-linkedin fa-w-14 fa-fw" aria-hidden="true" data-fa-processed="" data-prefix="fab" data-icon="linkedin" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg><!-- <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> -->
+  <!-- <span> LinkedIn</span></a> --> 
+<nav class="pagination-wrapper">
+    <div class="pagination">
+        <div class="pagination-left">
+        </div>
+        <div class="pagination-right">
+                <a href="http://blog.iamfaisalkhan.com/visualize-this-nathan-yau/">
+                    &larr; (Older) Review : Two Practical Books on Visualizations&nbsp;
+                </a>
+        </div>
+    </div>
+</nav>
+<div id="disqus_thread"></div>
+<script>
+/**
+* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+*/
+
+var disqus_config = function () {
+    this.page.url = "http://blog.iamfaisalkhan.com/eigen-introduction-part1/";
+    this.page.identifier = "eigen-introduction-part1";
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+
+s.src = '//iamfk.disqus.com/embed.js';
+
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+       				</div>
+        		</div>
+      		</div>
+    	</div>
+	    <footer class="footer">
+	      <div class="container">
+	        <p class="text-muted">
+	        &copy; <a href="http://blog.iamfaisalkhan.com">Faisal Khan</a> &ndash;
+                        Built with <a href="http://blog.getpelican.com/">Pelican</a></p>
+	      </div>
+	    </footer>
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    	<script src="/theme/js/bootstrap.min.js"></script>
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0&appId=377429082349634&autoLogAppEvents=1';
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-75355421-1', 'auto');
+  ga('send', 'pageview');
+
+</script>	</body>
+
+</html>
+    

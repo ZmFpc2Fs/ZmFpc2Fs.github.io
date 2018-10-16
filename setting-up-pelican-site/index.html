@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+    <head>
+	    <title>Faisal's Notes - Setting up a Blog with Pelican</title>
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link href="/favicon.png" rel="icon">
+        <link rel="alternate"  href="http://iamfaisalkhan.com/feeds/all.atom.xml" type="application/atom+xml" title="Faisal's Notes Full Atom Feed"/>
+        <link rel="alternate" href="http://iamfaisalkhan.com/feeds/atom.xml" type="application/atom+xml" title="Faisal's Notes Atom Feed"/>
+	    <link rel="stylesheet" href="/theme/css/bootstrap.min.css">
+	    <link rel="stylesheet" href="/theme/css/style.css?v=1">
+        <link rel="stylesheet" href="/theme/css/pygment.css?v=1">
+	   	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
+        <style type="text/css">svg:not(:root).svg-inline--fa{overflow:visible}.svg-inline--fa{display:inline-block;font-size:inherit;height:1em;overflow:visible;vertical-align:-.125em}.svg-inline--fa.fa-lg{vertical-align:-.225em}.svg-inline--fa.fa-w-1{width:.0625em}.svg-inline--fa.fa-w-2{width:.125em}.svg-inline--fa.fa-w-3{width:.1875em}.svg-inline--fa.fa-w-4{width:.25em}.svg-inline--fa.fa-w-5{width:.3125em}.svg-inline--fa.fa-w-6{width:.375em}.svg-inline--fa.fa-w-7{width:.4375em}.svg-inline--fa.fa-w-8{width:.5em}.svg-inline--fa.fa-w-9{width:.5625em}.svg-inline--fa.fa-w-10{width:.625em}.svg-inline--fa.fa-w-11{width:.6875em}.svg-inline--fa.fa-w-12{width:.75em}.svg-inline--fa.fa-w-13{width:.8125em}.svg-inline--fa.fa-w-14{width:.875em}.svg-inline--fa.fa-w-15{width:.9375em}.svg-inline--fa.fa-w-16{width:1em}.svg-inline--fa.fa-w-17{width:1.0625em}.svg-inline--fa.fa-w-18{width:1.125em}.svg-inline--fa.fa-w-19{width:1.1875em}.svg-inline--fa.fa-w-20{width:1.25em}.svg-inline--fa.fa-pull-left{margin-right:.3em;width:auto}.svg-inline--fa.fa-pull-right{margin-left:.3em;width:auto}.svg-inline--fa.fa-border{height:1.5em}.svg-inline--fa.fa-li{width:2em}.svg-inline--fa.fa-fw{width:1.25em}.fa-layers svg.svg-inline--fa{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}.fa-layers{display:inline-block;height:1em;position:relative;text-align:center;vertical-align:-12.5%;width:1em}.fa-layers svg.svg-inline--fa{-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-counter,.fa-layers-text{display:inline-block;position:absolute;text-align:center}.fa-layers-text{left:50%;top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-counter{background-color:#ff253a;border-radius:1em;color:#fff;height:1.5em;line-height:1;max-width:5em;min-width:1.5em;overflow:hidden;padding:.25em;right:0;text-overflow:ellipsis;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-bottom-right{bottom:0;right:0;top:auto;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:bottom right;transform-origin:bottom right}.fa-layers-bottom-left{bottom:0;left:0;right:auto;top:auto;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:bottom left;transform-origin:bottom left}.fa-layers-top-right{right:0;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-top-left{left:0;right:auto;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top left;transform-origin:top left}.fa-lg{font-size:1.33333em;line-height:.75em;vertical-align:-.0667em}.fa-xs{font-size:.75em}.fa-sm{font-size:.875em}.fa-1x{font-size:1em}.fa-2x{font-size:2em}.fa-3x{font-size:3em}.fa-4x{font-size:4em}.fa-5x{font-size:5em}.fa-6x{font-size:6em}.fa-7x{font-size:7em}.fa-8x{font-size:8em}.fa-9x{font-size:9em}.fa-10x{font-size:10em}.fa-fw{text-align:center;width:1.25em}.fa-ul{list-style-type:none;margin-left:2.5em;padding-left:0}.fa-ul>li{position:relative}.fa-li{left:-2em;position:absolute;text-align:center;width:2em;line-height:inherit}.fa-border{border:solid .08em #eee;border-radius:.1em;padding:.2em .25em .15em}.fa-pull-left{float:left}.fa-pull-right{float:right}.fa.fa-pull-left,.fab.fa-pull-left,.fal.fa-pull-left,.far.fa-pull-left,.fas.fa-pull-left{margin-right:.3em}.fa.fa-pull-right,.fab.fa-pull-right,.fal.fa-pull-right,.far.fa-pull-right,.fas.fa-pull-right{margin-left:.3em}.fa-spin{-webkit-animation:fa-spin 2s infinite linear;animation:fa-spin 2s infinite linear}.fa-pulse{-webkit-animation:fa-spin 1s infinite steps(8);animation:fa-spin 1s infinite steps(8)}@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}.fa-rotate-90{-webkit-transform:rotate(90deg);transform:rotate(90deg)}.fa-rotate-180{-webkit-transform:rotate(180deg);transform:rotate(180deg)}.fa-rotate-270{-webkit-transform:rotate(270deg);transform:rotate(270deg)}.fa-flip-horizontal{-webkit-transform:scale(-1,1);transform:scale(-1,1)}.fa-flip-vertical{-webkit-transform:scale(1,-1);transform:scale(1,-1)}.fa-flip-horizontal.fa-flip-vertical{-webkit-transform:scale(-1,-1);transform:scale(-1,-1)}:root .fa-flip-horizontal,:root .fa-flip-vertical,:root .fa-rotate-180,:root .fa-rotate-270,:root .fa-rotate-90{-webkit-filter:none;filter:none}.fa-stack{display:inline-block;height:2em;position:relative;width:2em}.fa-stack-1x,.fa-stack-2x{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}.svg-inline--fa.fa-stack-1x{height:1em;width:1em}.svg-inline--fa.fa-stack-2x{height:2em;width:2em}.fa-inverse{color:#fff}.sr-only{border:0;clip:rect(0,0,0,0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.sr-only-focusable:active,.sr-only-focusable:focus{clip:auto;height:auto;margin:0;overflow:visible;position:static;width:auto}</style>
+            
+
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="blog">
+<meta property="og:url" content="http://blog.iamfaisalkhan.com/setting-up-pelican-site/">
+<meta property="article:author" content="https://www.facebook.com/faisal.khan">
+<meta property="og:title" content="Setting up a Blog with Pelican">
+<meta property="og:description" content="A step-by-step guide on using pelican to generate a full featured blog and then hosting it on github.">
+<meta name="description" content="A step-by-step guide on using pelican to generate a full featured blog and then hosting it on github."/>
+<meta property="og:description" content="A step-by-step guide on using pelican to generate a full featured blog and then hosting it on github.">
+<meta property="og:image" content="">
+
+	</head>
+	
+	<body>
+		<header class="header">
+			<div class="header-content">
+                <div class="row">
+                    <div class="col-sm-9">
+                        <a class="logo" href="#">
+                            <img src="/theme/images/faisal.png?v=1" alt="Faisal's Notes">
+                        </a>
+                        <h1 class="site-title">
+                            <a href="/">Faisal's Notes</a>
+                        </h1>
+                        <h2 class="site-description">Data | Code | Visualization</h2>
+                    </div>
+                    <div class="col-sm-3">
+                        <div>
+                            <ul>
+                                <li><a href="http://www.iamfaisalkhan.com/feeds/all.atom.xml"><i class="fa fa-rss"></i></a></li>
+                                <li><a href="https://www.linkedin.com/in/faisal-khan-8686b040"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="https://twitter.com/phyisal"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="https://github.com/n-log-n"><i class="fa fa-github"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+			</div>
+        </header>
+
+        <div class="container">
+        	<div class="content">
+        		<div class="row">
+        			<div class="col-sm-3">
+        				<div class="sidebar">
+        					<h3> TAGS </h3>
+	    					<ul>
+	    							<li><a href="/tag/books" > #books </a></li>
+	    							<li><a href="/tag/C++" > #C++ </a></li>
+	    							<li><a href="/tag/d3.js" > #d3.js </a></li>
+	    							<li><a href="/tag/eigen" > #eigen </a></li>
+	    							<li><a href="/tag/pelican" > #pelican </a></li>
+	    							<li><a href="/tag/python" > #python </a></li>
+	    							<li><a href="/tag/visualization" > #visualization </a></li>
+	    						
+	    					</ul>
+	    				</div>
+                        
+        			</div>
+        			<div class="col-sm-9">
+
+    <article class="entry">
+        <header class="entry-head">
+            <span class="entry-meta">
+                <time datetime="April 23, 2017">April 23, 2017</time> 
+            </span>
+            <h2 class="entry-title"><a href="http://blog.iamfaisalkhan.com/setting-up-pelican-site/">Setting up a Blog with Pelican</a></h2>
+                <span class="label label-default">#python</span>
+                <span class="label label-default">#pelican</span>
+        </header>
+        <section class="post-summary">
+            <p>I am using <a href="https://pages.github.com/">GitHub pages</a> to host this blog. The static HTML content is generated from the Markdown text using <a href="http://blog.getpelican.com/">Pelican</a>.  </p>
+<p>The typical work flow is:</p>
+<ol>
+<li>Write content in Markdown</li>
+<li>Push changes to GitHub </li>
+<li><a href="https://travis-ci.org/">Travis</a> detects changes and generates the HTML using Pelican</li>
+</ol>
+<p>Here I document the steps for my setup. I did my setup on a Mac but these instructions should work for any *nix based system.</p>
+<h3>Setup a GitHub repository</h3>
+<p>We start with setting up a new GitHub repostiroy. The respostoriy should be named as <em>username.github.io</em>, where username is the name that you used to signup for the GitHub accout. That is how GitHub pages will know to serve your content at <em>http://username.github.io</em>. You can also point your own domain to this page. </p>
+<p>The GitHub pages serve static HTML content off of <em>master</em> branch of your repostiory. However, you would also like to keep the Markdown source files around as well. So, its better to have separate branches  for different type of conent. I would recommend keeping three branches: <em>master</em> for the HTML content, <em>sources</em> for the raw text, and a <em>draft</em> branch for working and refining a post before making it live. You can look at the repo for this blog <a href="https://github.com/n-log-n/n-log-n.github.io">here</a> to get an idea. The content is in the source branch and is processed by Pelican to generate the HTML that always overwrites the master branch. </p>
+<h3>Setting up Pelican</h3>
+<p>Pelican is a Python library/tool. You can easily install it using the <a href="https://pip.pypa.io/en/stable/installing/">pip</a> installer. A better approach is to first setup a <a href="https://virtualenv.pypa.io/en/latest/">virtualenv</a> and then install this tool. This will ensure the dependencies installed by pelican do not interfere with your other development environment.  </p>
+<div class="highlight"><pre><span></span>pip install virtualenv
+
+# Setup the new virtual environemnt. 
+
+virtualenv ~/virtualenvs/pelican
+
+# To use the new virtual environemnt
+source ~/virtualenvs/pelican/bin/activate
+
+# Install Pelican
+pip install pelican
+</pre></div>
+
+
+<p>To setup a new project, you will use the <strong>pelican-quickstart</strong> script. When you run the script, it will ask questions to help you configure your new site. These settings are stored in <em>pelicanconf.py</em> file that is the main configuration file for your blog and contains variables to modify things like theme, paths, plugins etc. </p>
+<div class="highlight"><pre><span></span>$ pelican-quickstart 
+
+Welcome to pelican-quickstart v3.6.3.
+
+This script will <span class="nb">help</span> you create a new Pelican-based website.
+
+Please answer the following questions so this script can generate the files
+needed by Pelican.
+
+
+&gt; Where <span class="k">do</span> you want to create your new web site? <span class="o">[</span>.<span class="o">]</span> 
+&gt; What will be the title of this web site? 
+...
+</pre></div>
+
+
+<p>The directory structure generated by the pelican is fairly straight forward. You write your content under the <strong>content</strong> directory, the generated HTML goes to the <strong>output</strong> directory. The provided <strong>Makefile</strong> allows you to generate the output along with running the embedded server for local testing. When setting up the blog for the first time, you would like to test it locally before pushing it to the server. To get a feel of what comes out of the box with Pelican, run the following commands:</p>
+<div class="highlight"><pre><span></span># Generate HTML 
+make html 
+
+# Run the embedded server
+make serve
+</pre></div>
+
+
+<p>This will launch a server accessible on the <a href="http://localhost:8080">localhost</a>. You should see a default page with out any post. </p>
+<h3>Adding the First Post</h3>
+<p>We add a post by creating a file under the content directory. A typical post contains a list of variables at the top followed by a space and then the contents of your post. The variables are used by Pelican to configure different aspects of a post.  Depending upon which Pelican theme (next topic) or plug-ins you are using, there might be additional variables available to you. For instance, I have a custom <strong>Tags</strong> variable to tell Pelican under what set of tags to post my blog entry. Pretty Neat! </p>
+<p>Here is a very simple hello world style post. </p>
+<div class="highlight"><pre><span></span><span class="n">title</span><span class="o">:</span> <span class="n">First</span> <span class="n">Post</span>
+<span class="n">date</span><span class="o">:</span> <span class="mi">04</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">2016</span>
+
+<span class="n">Hello</span> <span class="n">Pelican</span>
+</pre></div>
+
+
+<p>At this point, you should test your post and make sure you can see it on your blog. The post will be linked form the home page. You might need to stop the web server and repeat the make commands above for generating HTML and running the web server. A handy tip to avoid stopping/restarting the server each time you make a change is to run <em>make devserver</em> and that will update the HTML as soon as you make a change. </p>
+<h3>Installing Theme</h3>
+<p>There is large collection of community developed themes available <a href="https://github.com/getpelican/pelican-themes">here</a>. It might take you some time to settle on a theme that you liked. I ended up making a custom one using <a href="http://getbootstrap.com/">bootstrap</a>. You can start with an existing theme and modify it to your needs. Refer to the instructions <a href="http://docs.getpelican.com/en/3.6.3/themes.html">here</a>. I would try to clean-up my theme and post it separately at GitHub soon. </p>
+<p>To install a theme, create a new folder <em>themes</em> under the project root directory. Then clone the repository for the desired theme or copy its contents. </p>
+<div class="highlight"><pre><span></span>mkdir themes
+
+cd themes
+
+git clone https://github.com/demianbrecht/pelican-bold.git
+</pre></div>
+
+
+<p>Edit the pelicanconf.py and add a new <em>theme</em> variable to tell pelican which theme to use when generting the blog. </p>
+<div class="highlight"><pre><span></span>THEME = themes/pelican-bold
+</pre></div>
+
+
+<p>At this point, you can re-generate the HTML content to make sure that your theme setup was successfull. </p>
+<h3>Publishing with Travis</h3>
+<p>To publish your blog you push the contents of your <em>output</em> directory to the main branch of your repository. Since we want to keep the raw markdown files around as well. We will be pushing twice for a single post. These steps can be simplified by using a continuous integration tool like <a href="https://travis-ci.org/">Travis</a>. Travis can watch a branch for changes and automatically run a custom script. For our purpose, it will watch the <em>source</em> repository and launch pelican to publish HTML content and push it to the <em>master</em> branch upon detecting a change. </p>
+<p>To setup Travis, sign-up with your GitHub account on <a href="https://travis-ci.org/">travis-ci.org</a> and link the current repository. You might want to specify the branch that you want Travis to watch.  Under your project source, create a new file <em>.travis.yml</em> and paste in the following content. </p>
+<div class="highlight"><pre><span></span><span class="n">language</span><span class="o">:</span> <span class="n">python</span>
+<span class="n">branches</span><span class="o">:</span>
+  <span class="n">only</span><span class="o">:</span>
+  <span class="o">-</span> <span class="n">source</span>
+<span class="n">install</span><span class="o">:</span>
+<span class="o">-</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">markdown</span> <span class="n">pelican</span> <span class="n">ghp</span><span class="o">-</span><span class="k">import</span>
+<span class="nn">script</span><span class="o">:</span>
+<span class="o">-</span> <span class="n">make</span> <span class="n">publish</span> <span class="n">github</span>
+</pre></div>
+
+
+<p>Since it will push to the master branch of your repo, it has to authenticate on Github. For this, we use a OAuth token, that can be created and revoked from the <a href="https://github.com/settings/tokens">GitHub access token page</a>. You can keep this token secret with Travis, by using their command line tools. You can install these tools easily if you already have Ruby's gem tool installed. </p>
+<div class="highlight"><pre><span></span>gem install travis
+
+travis encrypt GH_TOKEN=&lt;token you got from GitHub&gt;
+</pre></div>
+
+
+<p>This will add a new block to the end of .travis.yml file.</p>
+<div class="highlight"><pre><span></span><span class="n">env</span><span class="o">:</span>
+  <span class="n">global</span><span class="o">:</span>
+    <span class="n">secure</span><span class="o">:</span> <span class="n">NWjh6sCvmjuX</span><span class="o">.</span><span class="na">Wo</span><span class="o">=</span>
+</pre></div>
+
+
+<p>As Travis simply invokes the Makefile script for publishing the blog, you might need to modify couple of things. </p>
+<p>Modify the value of <em>GITHUB_PAGES_BRANCH</em> to point the branch of HTML content - in our case the master branch. Also, towards the end of the script modify the target for github, you might need to specify the fully qualified name of the repostiroy. So modify the git push command to something like this:</p>
+<div class="highlight"><pre><span></span>git push -fq https://<span class="cp">${</span><span class="n">GH_TOKEN</span><span class="cp">}</span>@github.com/$(TRAVIS_REPO_SLUG).git  $(GITHUB_PAGES_BRANCH)
+</pre></div>
+
+
+<p>Now, if you push your source branch, travis will happily generate the HTML content and push it to the main branch. </p>
+<h3>Linking a custom Domain</h3>
+<p>To point a custom domain name to your GitHub blog page, you typically need to do two things : (1) tell GitHub pages which domain is being linked to it, (2) point the nameserver managing your domain to point to the GitHub servers. </p>
+<p>The first step is done by placing a file named <em>CNAME</em> on the master branch of your repository with the only content as the fully qualified domain name e.g. www.example.com. As our setup will overwrite the contents of the master branch every time you change your sources. To overcome this, you can configure static paths that are copied as part of the output generation. </p>
+<p>To configure static paths, add the following configuration to <em>pelicanconf.py</em> file. The images and extra are directories under you content directory. This will copy the contents of these directories onto the root of the generated content. </p>
+<div class="highlight"><pre><span></span>STATIC_PATHS = [
+    &#39;images&#39;,
+    &#39;extra/CNAME&#39;
+]
+</pre></div>
+
+
+<p>The second step is to point your domain's name server to your GitHub URL. The steps might vary depending on your domain nameserver. Typically, you will need to add the following two records to your nameserver.</p>
+<p><img alt="post" src="/images/setting-up-pelican-site/dns.png"></p>
+<p>Thats mostly it. Enjoy!</p>
+        </section>
+    </article> 
+<section>
+    <hr />
+    <h4> Share On: </h4>
+    <div id="social">
+      <div id="container">
+         <ul>
+            <li>
+               <a href="https://twitter.com/intent/tweet?via=phyisal&text=Setting up a Blog with Pelican http://blog.iamfaisalkhan.com/setting-up-pelican-site/" class="sbtn sbtn--twitter" data-show-count="false"><svg class="svg-inline--fa fa-twitter fa-w-16 fa-fw" aria-hidden="true" data-fa-processed="" data-prefix="fab" data-icon="twitter" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg><span> Twitter</span></a>
+            </li>
+
+            <li>
+               <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.iamfaisalkhan.com/setting-up-pelican-site/&;src=sdkpreparse" class="sbtn sbtn--facebook">
+                <svg class="svg-inline--fa fa-facebook fa-w-14 fa-fw" aria-hidden="true" data-fa-processed="" data-prefix="fab" data-icon="facebook" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M448 56.7v398.5c0 13.7-11.1 24.7-24.7 24.7H309.1V306.5h58.2l8.7-67.6h-67v-43.2c0-19.6 5.4-32.9 33.5-32.9h35.8v-60.5c-6.2-.8-27.4-2.7-52.2-2.7-51.6 0-87 31.5-87 89.4v49.9h-58.4v67.6h58.4V480H24.7C11.1 480 0 468.9 0 455.3V56.7C0 43.1 11.1 32 24.7 32h398.5c13.7 0 24.8 11.1 24.8 24.7z"></path></svg>
+                <span> Facebook</span></a>
+              </a>
+            </li>
+
+            <li>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://blog.iamfaisalkhan.com/setting-up-pelican-site/" class="sbtn sbtn--linkedin" title="Share on LinkedIn"><svg class="svg-inline--fa fa-linkedin fa-w-14 fa-fw" aria-hidden="true" data-fa-processed="" data-prefix="fab" data-icon="linkedin" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>
+                 <span> LinkedIn</span></a> 
+            </li>
+
+            <li>
+              <a href="https://plus.google.com/share?url=http://blog.iamfaisalkhan.com/setting-up-pelican-site/" class="sbtn sbtn--google-plus" title="Share on Google Plus">
+                <svg class="svg-inline--fa fa-google-plus fa-w-16 fa-fw" aria-hidden="true" data-fa-processed="" data-prefix="fab" data-icon="google-plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M248 8C111.1 8 0 119.1 0 256s111.1 248 248 248 248-111.1 248-248S384.9 8 248 8zm-70.7 372c-68.8 0-124-55.5-124-124s55.2-124 124-124c31.3 0 60.1 11 83 32.3l-33.6 32.6c-13.2-12.9-31.3-19.1-49.4-19.1-42.9 0-77.2 35.5-77.2 78.1s34.2 78.1 77.2 78.1c32.6 0 64.9-19.1 70.1-53.3h-70.1v-42.6h116.9c1.3 6.8 1.9 13.6 1.9 20.7 0 70.8-47.5 121.2-118.8 121.2zm230.2-106.2v35.5H372v-35.5h-35.5v-35.5H372v-35.5h35.5v35.5h35.2v35.5h-35.2z"></path></svg>
+                <span> Google+</span>
+              </a>
+
+            </li>
+         </ul>
+      </div>
+    </div>
+</section>
+
+
+
+
+  <!-- <a href="https://plus.google.com/share?url=https%3A%2F%2Fmtlynch.io%2Fwhy-i-quit-google%2F" class="btn btn--google-plus" title="Share on Google Plus"><svg class="svg-inline--fa fa-google-plus fa-w-16 fa-fw" aria-hidden="true" data-fa-processed="" data-prefix="fab" data-icon="google-plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M248 8C111.1 8 0 119.1 0 256s111.1 248 248 248 248-111.1 248-248S384.9 8 248 8zm-70.7 372c-68.8 0-124-55.5-124-124s55.2-124 124-124c31.3 0 60.1 11 83 32.3l-33.6 32.6c-13.2-12.9-31.3-19.1-49.4-19.1-42.9 0-77.2 35.5-77.2 78.1s34.2 78.1 77.2 78.1c32.6 0 64.9-19.1 70.1-53.3h-70.1v-42.6h116.9c1.3 6.8 1.9 13.6 1.9 20.7 0 70.8-47.5 121.2-118.8 121.2zm230.2-106.2v35.5H372v-35.5h-35.5v-35.5H372v-35.5h35.5v35.5h35.2v35.5h-35.2z"></path></svg><!-- <i class="fab fa-fw fa-google-plus" aria-hidden="true"></i> -->
+    <!-- <span> Google+</span></a> -->
+
+<!--   <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fmtlynch.io%2Fwhy-i-quit-google%2F" class="btn btn--linkedin" title="Share on LinkedIn"><svg class="svg-inline--fa fa-linkedin fa-w-14 fa-fw" aria-hidden="true" data-fa-processed="" data-prefix="fab" data-icon="linkedin" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg><!-- <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> -->
+  <!-- <span> LinkedIn</span></a> --> 
+<nav class="pagination-wrapper">
+    <div class="pagination">
+        <div class="pagination-left">
+                <a href="http://blog.iamfaisalkhan.com/visualize-this-nathan-yau/">
+                    (Newer) Review : Two Practical Books on Visualizations &rarr; 
+                </a>
+        </div>
+        <div class="pagination-right">
+                <a href="http://blog.iamfaisalkhan.com/average-is-over/">
+                    &larr; (Older) Book Review : Average is Over&nbsp;
+                </a>
+        </div>
+    </div>
+</nav>
+<div id="disqus_thread"></div>
+<script>
+/**
+* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+*/
+
+var disqus_config = function () {
+    this.page.url = "http://blog.iamfaisalkhan.com/setting-up-pelican-site/";
+    this.page.identifier = "setting-up-pelican-site";
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+
+s.src = '//iamfk.disqus.com/embed.js';
+
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+       				</div>
+        		</div>
+      		</div>
+    	</div>
+	    <footer class="footer">
+	      <div class="container">
+	        <p class="text-muted">
+	        &copy; <a href="http://blog.iamfaisalkhan.com">Faisal Khan</a> &ndash;
+                        Built with <a href="http://blog.getpelican.com/">Pelican</a></p>
+	      </div>
+	    </footer>
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    	<script src="/theme/js/bootstrap.min.js"></script>
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0&appId=377429082349634&autoLogAppEvents=1';
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-75355421-1', 'auto');
+  ga('send', 'pageview');
+
+</script>	</body>
+
+</html>
+    
